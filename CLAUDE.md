@@ -1,10 +1,5 @@
 # Conatus Real Estate Website
 
-## GitHub Account
-
-**This project uses the `tedfarry` GitHub account.**
-Remote: `git@github.com:tedfarry/conatusre-website.git` (SSH, push enabled)
-
 ## Overview
 Marketing website for Conatus Real Estate Inc. Built with Astro, deployed to Cloudflare Pages.
 Design inspired by Banyan Studio theme (dark/minimal aesthetic, GSAP animation-ready) with
