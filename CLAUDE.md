@@ -1,5 +1,10 @@
 # Conatus Real Estate Website
 
+## GitHub Account
+
+**This project uses the `tedfarry` GitHub account.**
+Remote: `git@github.com:tedfarry/conatusre-website.git` (SSH, push enabled)
+
 ## Overview
 Marketing website for Conatus Real Estate Inc. Built with Astro, deployed to Cloudflare Pages.
 Design inspired by Banyan Studio theme (dark/minimal aesthetic, GSAP animation-ready) with
@@ -62,10 +67,14 @@ All case studies MUST use anonymized data:
 - Use descriptive titles, not client names ("Regional Investor", not "Acme Capital")
 - No client-identifiable information in any file, including comments and commit messages
 
-## PR Workflow
+## Git Workflow
+
+- **Push enabled**: Workers should commit and push after completing work
 - All changes via pull request — no direct push to `main`
 - Require 1 review before merge
 - Branch naming: `feature/description`, `content/description`, `fix/description`
+- After committing on a task branch, push with `git push -u origin <branch-name>`
+- Proactively commit and push — don't wait to be asked
 
 ## Design Conventions
 
