@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Contact"
+  description="Get in touch with Conatus Real Estate for consulting, partnership opportunities, or general inquiries."
+>
+  <section class="section">
+    <div class="container--narrow">
+      <p class="page-label">Contact</p>
+      <h1>Let's <span class="accent">talk</span></h1>
+
+      <div class="prose">
+        <p class="lead">
+          Whether you're looking for consulting on a specific deal, portfolio-level
+          strategy, or technology implementation, we'd like to hear from you.
+        </p>
+      </div>
+
+      <div class="contact-options">
+        <div class="card">
+          <h3>Email</h3>
+          <p>For general inquiries and consulting engagements.</p>
+          <a href="mailto:info@conatusre.com" class="btn btn--outline">info@conatusre.com</a>
+        </div>
+
+        <div class="card">
+          <h3>Schedule a Call</h3>
+          <p>Book a 30-minute introductory call to discuss your needs.</p>
+          <a href="#" class="btn btn--primary">Book a Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  h1 {
+    margin-bottom: var(--space-xl);
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+  }
+
+  .contact-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+  }
+</style>

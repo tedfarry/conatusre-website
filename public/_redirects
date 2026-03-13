@@ -1,0 +1,4 @@
+# Cloudflare Pages redirects
+# Format: /old-path /new-path [status-code]
+# Add redirects here when migrating from WordPress URLs
+# See: https://developers.cloudflare.com/pages/configuration/redirects/

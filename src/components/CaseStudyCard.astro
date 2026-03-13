@@ -1,0 +1,81 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  propertyType: string;
+  market: string;
+  outcome: string;
+}
+
+const { title, description, slug, propertyType, market, outcome } = Astro.props;
+---
+
+<a href={`/case-studies/${slug}`} class="case-card card">
+  <div class="case-card__header">
+    <span class="tag">{propertyType}</span>
+    <span class="case-card__market">{market}</span>
+  </div>
+  <h3 class="case-card__title">{title}</h3>
+  <p class="case-card__description">{description}</p>
+  <div class="case-card__outcome">
+    <span class="case-card__outcome-label">Outcome</span>
+    <span class="case-card__outcome-value">{outcome}</span>
+  </div>
+</a>
+
+<style>
+  .case-card {
+    display: block;
+    text-decoration: none;
+  }
+
+  .case-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .case-card__market {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .case-card__title {
+    font-size: 1.25rem;
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+  }
+
+  .case-card__description {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .case-card__outcome {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .case-card__outcome-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+  }
+
+  .case-card__outcome-value {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+</style>

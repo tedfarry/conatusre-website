@@ -1,0 +1,99 @@
+---
+import Base from '../../layouts/Base.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const categories = [...new Set(allPosts.map((post) => post.data.category))];
+---
+
+<Base
+  title="Blog"
+  description="Insights on real estate operations, technology, and single-family residential investing from Conatus Real Estate."
+>
+  <section class="section">
+    <div class="container">
+      <div class="page-header">
+        <p class="page-label">Insights</p>
+        <h1>Blog</h1>
+        <p class="page-description">
+          Perspectives on real estate operations, technology, and the evolving
+          landscape of single-family residential investing.
+        </p>
+      </div>
+
+      {categories.length > 1 && (
+        <div class="categories">
+          <span class="tag active">All</span>
+          {categories.map((cat) => (
+            <span class="tag">{cat}</span>
+          ))}
+        </div>
+      )}
+
+      <div class="posts-grid">
+        {allPosts.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            slug={post.id}
+            category={post.data.category}
+            heroImage={post.data.heroImage}
+          />
+        ))}
+      </div>
+
+      {allPosts.length === 0 && (
+        <p class="empty-state">No posts yet. Check back soon.</p>
+      )}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-header {
+    margin-bottom: var(--space-xl);
+    max-width: 560px;
+  }
+
+  .page-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .page-description {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+  }
+
+  .categories {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-xl);
+  }
+
+  .categories .tag.active {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-color: var(--color-accent);
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .empty-state {
+    text-align: center;
+    color: var(--color-text-muted);
+    padding: var(--space-2xl);
+  }
+</style>
