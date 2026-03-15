@@ -9,33 +9,131 @@ const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
   .slice(0, 3);
 
 const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.draft))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const allServices = (await getCollection('services', ({ data }) => !data.draft))
   .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <Base
-  title="Conatus Real Estate"
-  description="Real estate consulting powered by technology and operational rigor. Acquisitions, asset management, and technology solutions for single-family residential portfolios."
+  title="Conatus Real Estate — AI-Powered Operations Platforms"
+  description="We build AI-powered operations platforms for regulated industries. 4,000+ SFR transactions executed, $1B+ in acquisitions capital deployed. Deep operational expertise. Built with Claude."
 >
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <div class="hero__content">
-        <p class="hero__label">Real Estate Consulting</p>
+      <div class="hero__content" data-animate>
+        <p class="hero__label">AI-Powered Operations</p>
         <h1 class="hero__title">
-          Technology-driven<br />
-          real estate <span class="accent">operations</span>
+          We build the systems.<br />
+          <span class="accent">We know the domain.</span>
         </h1>
         <p class="hero__subtitle">
-          We combine deep operational expertise with purpose-built technology to acquire,
-          manage, and optimize single-family residential portfolios.
+          Operations platforms for regulated industries — built by operators with deep domain
+          expertise, powered by AI. Starting with single-family residential real estate
+          and expanding across financial services, asset management, and private lending.
         </p>
         <div class="hero__actions">
           <a href="/contact" class="btn btn--primary">Get in Touch</a>
-          <a href="/case-studies" class="btn btn--outline">View Case Studies</a>
+          <a href="#case-studies" class="btn btn--outline">See Our Work</a>
+        </div>
+      </div>
+      <div class="hero__visual" data-animate>
+        <div class="hero__hex-grid" aria-hidden="true">
+          <div class="hex hex--1"></div>
+          <div class="hex hex--2"></div>
+          <div class="hex hex--3"></div>
+          <div class="hex hex--4"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Built with Claude -->
+  <section class="section claude-section" id="claude">
+    <div class="container">
+      <div class="claude-grid">
+        <div class="claude-content" data-animate>
+          <p class="section-header__label">AI-Native Development</p>
+          <h2>Built with <span class="accent">Claude</span></h2>
+          <p class="claude-lead">
+            Every platform we build leverages Claude's intelligence — not as an add-on,
+            but as core infrastructure. MCP tool definitions, autonomous agent workflows,
+            and AI-driven analysis pipelines are how we work.
+          </p>
+          <ul class="claude-capabilities">
+            <li>
+              <span class="claude-capabilities__icon" aria-hidden="true">{'\u25B8'}</span>
+              <span><strong>MCP Integration</strong> — Custom tool definitions that give Claude structured access to your operational data</span>
+            </li>
+            <li>
+              <span class="claude-capabilities__icon" aria-hidden="true">{'\u25B8'}</span>
+              <span><strong>Autonomous Agents</strong> — Multi-step workflows that execute complex analysis and development tasks</span>
+            </li>
+            <li>
+              <span class="claude-capabilities__icon" aria-hidden="true">{'\u25B8'}</span>
+              <span><strong>Production Systems</strong> — Not prototypes — platforms running real operations at scale</span>
+            </li>
+          </ul>
+        </div>
+        <div class="claude-code" data-animate>
+          <div class="code-window">
+            <div class="code-window__header">
+              <span class="code-window__dot"></span>
+              <span class="code-window__dot"></span>
+              <span class="code-window__dot"></span>
+              <span class="code-window__title">property_analysis.py</span>
+            </div>
+            <pre class="code-window__body"><code set:html={`<span class="code-kw">from</span> <span class="code-mod">fastmcp</span> <span class="code-kw">import</span> FastMCP
+
+mcp = FastMCP(<span class="code-str">"property-analysis"</span>)
+
+<span class="code-decorator">@mcp.tool()</span>
+<span class="code-kw">async def</span> <span class="code-fn">analyze_property</span>(
+    address: <span class="code-type">str</span>,
+    market: <span class="code-type">str</span>,
+) -&gt; <span class="code-type">dict</span>:
+    <span class="code-str">"""Analyze a property against investment
+    criteria using live market data and
+    portfolio benchmarks."""</span>
+
+    comps = <span class="code-kw">await</span> pull_comparable_sales(
+        address, radius_mi=<span class="code-num">1.0</span>
+    )
+    rental = <span class="code-kw">await</span> get_rental_estimates(address)
+
+    <span class="code-kw">return</span> {
+        <span class="code-str">"arv"</span>: comps.median_price,
+        <span class="code-str">"estimated_rent"</span>: rental.monthly,
+        <span class="code-str">"cap_rate"</span>: rental.annual / comps.median_price,
+        <span class="code-str">"recommendation"</span>: score_against_thesis(
+            comps, rental, market
+        ),
+    }`} /></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof Points -->
+  <section class="section proof-section">
+    <div class="container">
+      <div class="proof-grid" data-animate>
+        <div class="proof-card">
+          <span class="proof-card__number">4,000+</span>
+          <span class="proof-card__label">SFR Transactions Executed</span>
+          <span class="proof-card__detail">Through platforms we built and operated</span>
+        </div>
+        <div class="proof-card">
+          <span class="proof-card__number">$1B+</span>
+          <span class="proof-card__label">In SFR Transactions</span>
+          <span class="proof-card__detail">Systematic, data-driven processes at scale</span>
+        </div>
+        <div class="proof-card">
+          <span class="proof-card__number">AI-Native</span>
+          <span class="proof-card__label">Built with Claude</span>
+          <span class="proof-card__detail">Every platform leverages Claude's intelligence</span>
         </div>
       </div>
     </div>
@@ -44,13 +142,13 @@ const allServices = (await getCollection('services', ({ data }) => !data.draft))
   <!-- Services -->
   <section class="section" id="services">
     <div class="container">
-      <div class="section-header">
-        <p class="section-header__label">What We Do</p>
+      <div class="section-header" data-animate>
+        <p class="section-header__label">What We Build</p>
         <h2>Services</h2>
       </div>
       <div class="services-grid">
         {allServices.map((service) => (
-          <div class="card">
+          <div class="card service-card" data-animate>
             {service.data.icon && <span class="service-icon">{service.data.icon}</span>}
             <h3>{service.data.title}</h3>
             <p>{service.data.description}</p>
@@ -62,69 +160,144 @@ const allServices = (await getCollection('services', ({ data }) => !data.draft))
 
   <!-- Case Studies -->
   {allCaseStudies.length > 0 && (
-    <section class="section">
+    <section class="section" id="case-studies">
       <div class="container">
-        <div class="section-header">
-          <p class="section-header__label">Our Work</p>
+        <div class="section-header" data-animate>
+          <p class="section-header__label">Platforms We've Built</p>
           <h2>Case Studies</h2>
         </div>
         <div class="grid grid--3">
           {allCaseStudies.map((study) => (
-            <CaseStudyCard
-              title={study.data.title}
-              description={study.data.description}
-              slug={study.id}
-              propertyType={study.data.propertyType}
-              market={study.data.market}
-              outcome={study.data.outcome}
-            />
+            <div data-animate>
+              <CaseStudyCard
+                title={study.data.title}
+                description={study.data.description}
+                slug={study.id}
+                propertyType={study.data.propertyType}
+                market={study.data.market}
+                outcome={study.data.outcome}
+              />
+            </div>
           ))}
         </div>
-        <div class="section-footer">
+        <div class="section-footer" data-animate>
           <a href="/case-studies" class="btn btn--outline">View All Case Studies</a>
         </div>
       </div>
     </section>
   )}
 
+  <!-- Domain Expertise -->
+  <section class="section domain-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <p class="section-header__label">Domain Expertise</p>
+        <h2>Regulated Industries, Starting with Real Estate</h2>
+      </div>
+      <div class="domain-grid" data-animate>
+        <div class="domain-card domain-card--primary">
+          <h3>Single-Family Residential</h3>
+          <p>Our deepest domain. Acquisitions, asset management, HCV operations, compliance — we've built and operated at every level of the SFR stack.</p>
+        </div>
+        <div class="domain-card">
+          <h3>Financial Services</h3>
+          <p>Portfolio analytics, risk assessment, and compliance automation for asset managers and investment firms.</p>
+        </div>
+        <div class="domain-card">
+          <h3>Private Lending</h3>
+          <p>Loan origination workflows, underwriting automation, and portfolio monitoring platforms.</p>
+        </div>
+        <div class="domain-card">
+          <h3>Asset Management</h3>
+          <p>Cross-asset-class operational platforms for managers who need systematic process control and reporting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Blog -->
   {allPosts.length > 0 && (
     <section class="section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-animate>
           <p class="section-header__label">Insights</p>
           <h2>Latest from the Blog</h2>
         </div>
         <div class="grid grid--3">
           {allPosts.map((post) => (
-            <BlogCard
-              title={post.data.title}
-              description={post.data.description}
-              pubDate={post.data.pubDate}
-              slug={post.id}
-              category={post.data.category}
-              heroImage={post.data.heroImage}
-            />
+            <div data-animate>
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description}
+                pubDate={post.data.pubDate}
+                slug={post.id}
+                category={post.data.category}
+                heroImage={post.data.heroImage}
+              />
+            </div>
           ))}
         </div>
-        <div class="section-footer">
+        <div class="section-footer" data-animate>
           <a href="/blog" class="btn btn--outline">View All Posts</a>
         </div>
       </div>
     </section>
   )}
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-content" data-animate>
+        <h2>Ready to build?</h2>
+        <p class="cta-lead">
+          Whether you're looking to build a new operations platform, integrate AI into
+          your existing systems, or need technical consulting for a complex operational
+          challenge — let's talk.
+        </p>
+        <div class="cta-contact">
+          <div class="cta-contact__item">
+            <span class="cta-contact__label">Email</span>
+            <a href="mailto:houses@conatusre.com">houses@conatusre.com</a>
+          </div>
+          <div class="cta-contact__item">
+            <span class="cta-contact__label">Phone</span>
+            <a href="tel:+19492673990">(949) 267-3990</a>
+          </div>
+          <div class="cta-contact__item">
+            <span class="cta-contact__label">Office</span>
+            <span class="cta-contact__text">5000 Birch Street, Suite 3000<br />Newport Beach, CA 92660</span>
+          </div>
+        </div>
+        <div class="cta-actions">
+          <a href="/contact" class="btn btn--primary">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </Base>
 
 <style>
+  /* ========================
+     Hero
+     ======================== */
   .hero {
     padding: var(--space-2xl) 0;
-    min-height: 70vh;
+    min-height: 85vh;
     display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero > .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
     align-items: center;
   }
 
   .hero__content {
-    max-width: 720px;
+    max-width: 640px;
   }
 
   .hero__label {
@@ -133,17 +306,20 @@ const allServices = (await getCollection('services', ({ data }) => !data.draft))
     letter-spacing: 0.12em;
     color: var(--color-accent);
     margin-bottom: var(--space-md);
+    font-weight: 500;
   }
 
   .hero__title {
     margin-bottom: var(--space-lg);
+    line-height: 1.1;
   }
 
   .hero__subtitle {
     font-size: 1.15rem;
     color: var(--color-text-muted);
-    max-width: 560px;
+    max-width: 540px;
     margin-bottom: var(--space-xl);
+    line-height: 1.7;
   }
 
   .hero__actions {
@@ -152,6 +328,73 @@ const allServices = (await getCollection('services', ({ data }) => !data.draft))
     flex-wrap: wrap;
   }
 
+  /* Hero abstract visual */
+  .hero__visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero__hex-grid {
+    position: relative;
+    width: 320px;
+    height: 320px;
+  }
+
+  .hex {
+    position: absolute;
+    width: 100px;
+    height: 115px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .hex--1 {
+    top: 10px;
+    left: 110px;
+    background: var(--color-accent);
+    opacity: 0.9;
+  }
+
+  .hex--2 {
+    top: 95px;
+    left: 30px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    opacity: 0.7;
+  }
+
+  .hex--3 {
+    top: 95px;
+    left: 190px;
+    background: #5b9e8f;
+    opacity: 0.6;
+  }
+
+  .hex--4 {
+    top: 180px;
+    left: 110px;
+    background: var(--color-bg-elevated);
+    opacity: 0.5;
+  }
+
+  @media (max-width: 768px) {
+    .hero > .container {
+      grid-template-columns: 1fr;
+    }
+
+    .hero__visual {
+      display: none;
+    }
+
+    .hero {
+      min-height: 70vh;
+    }
+  }
+
+  /* ========================
+     Section utilities
+     ======================== */
   .section-header {
     margin-bottom: var(--space-xl);
   }
@@ -162,6 +405,7 @@ const allServices = (await getCollection('services', ({ data }) => !data.draft))
     letter-spacing: 0.12em;
     color: var(--color-accent);
     margin-bottom: var(--space-sm);
+    font-weight: 500;
   }
 
   .services-grid {
@@ -170,10 +414,17 @@ const allServices = (await getCollection('services', ({ data }) => !data.draft))
     gap: var(--space-lg);
   }
 
+  .service-card h3 {
+    margin-bottom: var(--space-sm);
+  }
+
   .service-icon {
-    font-size: 1.5rem;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    color: var(--color-accent);
     margin-bottom: var(--space-sm);
     display: block;
+    letter-spacing: 0.05em;
   }
 
   .grid {
@@ -189,4 +440,293 @@ const allServices = (await getCollection('services', ({ data }) => !data.draft))
     margin-top: var(--space-xl);
     text-align: center;
   }
+
+  /* ========================
+     Built with Claude
+     ======================== */
+  .claude-section {
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg-elevated);
+  }
+
+  .claude-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  .claude-lead {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
+    line-height: 1.7;
+  }
+
+  .claude-capabilities {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .claude-capabilities li {
+    display: flex;
+    gap: var(--space-sm);
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .claude-capabilities__icon {
+    color: var(--color-accent);
+    flex-shrink: 0;
+    margin-top: 0.2em;
+  }
+
+  .claude-capabilities strong {
+    color: var(--color-text);
+  }
+
+  /* Code window */
+  .code-window {
+    background: #0d0d0d;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .code-window__header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .code-window__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-border);
+  }
+
+  .code-window__title {
+    margin-left: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .code-window__body {
+    padding: 20px;
+    margin: 0;
+    background: none;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+  }
+
+  .code-window__body code {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+  }
+
+  .code-kw { color: #c8a96e; }
+  .code-fn { color: #7ec8a4; }
+  .code-str { color: #8bbf6e; }
+  .code-mod { color: #d4ba82; }
+  .code-type { color: #7ea8c8; }
+  .code-num { color: #d4a06e; }
+  .code-decorator { color: #c8a96e; opacity: 0.8; }
+
+  @media (max-width: 900px) {
+    .claude-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ========================
+     Proof Points
+     ======================== */
+  .proof-section {
+    padding: var(--space-xl) 0;
+  }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    text-align: center;
+  }
+
+  .proof-card {
+    padding: var(--space-lg);
+  }
+
+  .proof-card__number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-xs);
+  }
+
+  .proof-card__label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-xs);
+  }
+
+  .proof-card__detail {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .proof-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+  }
+
+  /* ========================
+     Domain Expertise
+     ======================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .domain-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    transition: border-color 0.3s ease;
+  }
+
+  .domain-card:hover {
+    border-color: var(--color-accent);
+  }
+
+  .domain-card--primary {
+    border-color: var(--color-accent);
+    background: rgba(200, 169, 110, 0.05);
+  }
+
+  .domain-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+  }
+
+  .domain-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* ========================
+     CTA Section
+     ======================== */
+  .cta-section {
+    border-top: 1px solid var(--color-border);
+    background: var(--color-bg-elevated);
+  }
+
+  .cta-content {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-lead {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xl);
+    line-height: 1.7;
+  }
+
+  .cta-contact {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+    flex-wrap: wrap;
+  }
+
+  .cta-contact__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .cta-contact__label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .cta-contact__item a,
+  .cta-contact__text {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  /* ========================
+     Scroll animations
+     ======================== */
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  [data-animate].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 </style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  document.querySelectorAll('[data-animate]').forEach((el) => {
+    observer.observe(el);
+  });
+</script>
