@@ -14,7 +14,8 @@ const currentPath = Astro.url.pathname;
 <header class="header">
   <nav class="header__nav container">
     <a href="/" class="header__logo">
-      <span class="header__logo-text">Conatus<span class="accent">RE</span></span>
+      <img src="/assets/brand/ConatusREIcon500-300x300.png" alt="" class="header__logo-icon" width="32" height="32" />
+      <span class="header__logo-text">Conatus <span class="header__logo-sub">Real Estate</span></span>
     </a>
 
     <button class="header__toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -59,14 +60,30 @@ const currentPath = Astro.url.pathname;
 
   .header__logo {
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .header__logo-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
   }
 
   .header__logo-text {
     font-family: var(--font-heading);
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--color-text);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .header__logo-sub {
+    font-weight: 400;
+    color: var(--color-text-muted);
+    font-size: 0.85em;
   }
 
   .header__toggle {
