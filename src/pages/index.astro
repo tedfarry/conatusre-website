@@ -17,7 +17,7 @@ const allServices = (await getCollection('services', ({ data }) => !data.draft))
 
 <Base
   title="Conatus Real Estate — AI-Powered Operations Platforms"
-  description="We build AI-powered operations platforms for regulated industries. 4,000+ SFR transactions executed, $1B+ in acquisitions capital deployed. Deep operational expertise. Built with Claude."
+  description="Custom AI-powered operations platforms for regulated industries — not SaaS, not off-the-shelf. 4,000+ SFR transactions, $1B+ in acquisitions capital. Deep operational expertise. Built with Claude."
 >
   <!-- Hero -->
   <section class="hero">
@@ -29,9 +29,10 @@ const allServices = (await getCollection('services', ({ data }) => !data.draft))
           <span class="accent">We know the domain.</span>
         </h1>
         <p class="hero__subtitle">
-          Operations platforms for regulated industries — built by operators with deep domain
-          expertise, powered by AI. Starting with single-family residential real estate
-          and expanding across financial services, asset management, and private lending.
+          Fully custom operations platforms — not SaaS products that solve half your problems
+          and a thousand that aren't yours. Built by operators with deep domain expertise,
+          powered by AI. Starting with single-family residential real estate and expanding
+          across financial services, asset management, and private lending.
         </p>
         <div class="hero__actions">
           <a href="/contact" class="btn btn--primary">Get in Touch</a>
@@ -78,7 +79,7 @@ const allServices = (await getCollection('services', ({ data }) => !data.draft))
             </li>
             <li>
               <span class="claude-capabilities__icon" aria-hidden="true">{'\u25B8'}</span>
-              <span><strong>Production Systems</strong> — Not prototypes — platforms running real operations at scale</span>
+              <span><strong>Production Systems</strong> — Not prototypes — purpose-built platforms designed for real operations at scale</span>
             </li>
           </ul>
         </div>
@@ -88,33 +89,34 @@ const allServices = (await getCollection('services', ({ data }) => !data.draft))
               <span class="code-window__dot"></span>
               <span class="code-window__dot"></span>
               <span class="code-window__dot"></span>
-              <span class="code-window__title">property_analysis.py</span>
+              <span class="code-window__title">acquisition_screen.py</span>
             </div>
             <pre class="code-window__body"><code set:html={`<span class="code-kw">from</span> <span class="code-mod">fastmcp</span> <span class="code-kw">import</span> FastMCP
+<span class="code-kw">from</span> <span class="code-mod">pydantic</span> <span class="code-kw">import</span> BaseModel
 
-mcp = FastMCP(<span class="code-str">"property-analysis"</span>)
+mcp = FastMCP(<span class="code-str">"conatus-ops"</span>)
+
+<span class="code-kw">class</span> <span class="code-type">Deal</span>(BaseModel):
+    asking: <span class="code-type">float</span>
+    arv: <span class="code-type">float</span>
+    monthly_rent: <span class="code-type">float</span>
+    rehab: <span class="code-type">float</span> = <span class="code-num">0.0</span>
 
 <span class="code-decorator">@mcp.tool()</span>
-<span class="code-kw">async def</span> <span class="code-fn">analyze_property</span>(
-    address: <span class="code-type">str</span>,
-    market: <span class="code-type">str</span>,
-) -&gt; <span class="code-type">dict</span>:
-    <span class="code-str">"""Analyze a property against investment
-    criteria using live market data and
-    portfolio benchmarks."""</span>
-
-    comps = <span class="code-kw">await</span> pull_comparable_sales(
-        address, radius_mi=<span class="code-num">1.0</span>
+<span class="code-kw">def</span> <span class="code-fn">screen_acquisition</span>(deal: <span class="code-type">Deal</span>) -&gt; <span class="code-type">dict</span>:
+    <span class="code-str">"""Screen a potential SFR acquisition
+    against portfolio investment criteria."""</span>
+    max_offer = deal.arv * <span class="code-num">0.70</span> - deal.rehab
+    cap = (deal.monthly_rent * <span class="code-num">12</span>) / deal.arv
+    coc = (deal.monthly_rent * <span class="code-num">12</span>) / (
+        deal.asking + deal.rehab
     )
-    rental = <span class="code-kw">await</span> get_rental_estimates(address)
-
     <span class="code-kw">return</span> {
-        <span class="code-str">"arv"</span>: comps.median_price,
-        <span class="code-str">"estimated_rent"</span>: rental.monthly,
-        <span class="code-str">"cap_rate"</span>: rental.annual / comps.median_price,
-        <span class="code-str">"recommendation"</span>: score_against_thesis(
-            comps, rental, market
-        ),
+        <span class="code-str">"max_offer"</span>: <span class="code-fn">round</span>(max_offer, <span class="code-num">2</span>),
+        <span class="code-str">"cap_rate"</span>: <span class="code-fn">round</span>(cap, <span class="code-num">4</span>),
+        <span class="code-str">"cash_on_cash"</span>: <span class="code-fn">round</span>(coc, <span class="code-num">4</span>),
+        <span class="code-str">"meets_criteria"</span>: cap &gt;= <span class="code-num">0.08</span>
+            <span class="code-kw">and</span> max_offer &gt;= deal.asking,
     }`} /></pre>
           </div>
         </div>
@@ -150,7 +152,7 @@ mcp = FastMCP(<span class="code-str">"property-analysis"</span>)
     <div class="container">
       <div class="section-header" data-animate>
         <p class="section-header__label">What We Build</p>
-        <h2>Services</h2>
+        <h2>Your Platform, Not Theirs</h2>
       </div>
       <div class="services-grid">
         {allServices.map((service) => (
@@ -215,7 +217,29 @@ mcp = FastMCP(<span class="code-str">"property-analysis"</span>)
         </div>
         <div class="domain-card">
           <h3>Asset Management</h3>
-          <p>Cross-asset-class operational platforms for managers who need systematic process control and reporting.</p>
+          <p>Deep experience managing SFR portfolios — lease-ups, HCV compliance, inspections, and housing authority coordination. Platform-ready for broader asset classes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Existing Clients & Investors -->
+  <section class="section legacy-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <p class="section-header__label">Existing Clients & Investors</p>
+        <h2>Investment & Advisory</h2>
+      </div>
+      <div class="legacy-grid" data-animate>
+        <div class="card legacy-card">
+          <h3>Homestead Affordable Fund I</h3>
+          <p>Conatus Real Estate Inc. is the sponsor of Homestead Affordable Fund I, a single-family residential fund focused on Housing Choice Voucher tenants.</p>
+          <a href="https://homesteadaffordable.com" class="btn btn--outline btn--sm" target="_blank" rel="noopener">Homestead Affordable &rarr;</a>
+        </div>
+        <div class="card legacy-card">
+          <h3>1031 Exchange Consulting</h3>
+          <p>We provide strategic consulting for investors executing 1031 exchanges within the single-family residential space, including identification, analysis, and acquisition support.</p>
+          <a href="/contact" class="btn btn--outline btn--sm">Inquire &rarr;</a>
         </div>
       </div>
     </div>
@@ -256,9 +280,9 @@ mcp = FastMCP(<span class="code-str">"property-analysis"</span>)
       <div class="cta-content" data-animate>
         <h2>Ready to build?</h2>
         <p class="cta-lead">
-          Whether you're looking to build a new operations platform, integrate AI into
-          your existing systems, or need technical consulting for a complex operational
-          challenge — let's talk.
+          Whether you need a custom operations platform, want to put the intelligence of
+          Claude inside your existing systems, or need operational analytics consulting
+          — let's talk.
         </p>
         <div class="cta-contact">
           <div class="cta-contact__item">
@@ -712,6 +736,33 @@ mcp = FastMCP(<span class="code-str">"property-analysis"</span>)
     font-size: 0.9rem;
     color: var(--color-text-muted);
     margin: 0;
+  }
+
+  /* ========================
+     Legacy / Investment Section
+     ======================== */
+  .legacy-section {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .legacy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .legacy-card h3 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .legacy-card p {
+    font-size: 0.9rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .btn--sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
   }
 
   /* ========================
