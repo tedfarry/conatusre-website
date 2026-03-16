@@ -11,8 +11,6 @@ const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
 const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const allServices = (await getCollection('services', ({ data }) => !data.draft))
-  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <Base
@@ -155,13 +153,39 @@ mcp = FastMCP(<span class="code-str">"conatus-ops"</span>)
         <h2>Your Platform, Not Theirs</h2>
       </div>
       <div class="services-grid">
-        {allServices.map((service) => (
-          <div class="card service-card" data-animate>
-            {service.data.icon && <span class="service-icon">{service.data.icon}</span>}
-            <h3>{service.data.title}</h3>
-            <p>{service.data.description}</p>
-          </div>
-        ))}
+        <div class="card service-card" data-animate>
+          <span class="service-icon">01</span>
+          <h3>Operational Platform Development</h3>
+          <p>Custom software platforms built for regulated operations — purpose-built tools that execute at scale, not SaaS products that solve half your problems.</p>
+          <ul class="service-features">
+            <li><span class="feature-arrow" aria-hidden="true">&#x25B8;</span> Requirements Analysis & Architecture</li>
+            <li><span class="feature-arrow" aria-hidden="true">&#x25B8;</span> Full-Stack Platform Engineering</li>
+            <li><span class="feature-arrow" aria-hidden="true">&#x25B8;</span> Data Pipeline & Integration</li>
+            <li><span class="feature-arrow" aria-hidden="true">&#x25B8;</span> Production Deployment & Monitoring</li>
+          </ul>
+        </div>
+        <div class="card service-card" data-animate>
+          <span class="service-icon">02</span>
+          <h3>Claude Integration</h3>
+          <p>Put the intelligence of Claude inside your existing platform. MCP integrations, autonomous workflows, and AI-native tools that amplify your team.</p>
+          <ul class="service-features">
+            <li><span class="feature-arrow" aria-hidden="true">&#x25B8;</span> MCP Tool Definitions</li>
+            <li><span class="feature-arrow" aria-hidden="true">&#x25B8;</span> Autonomous Agent Workflows</li>
+            <li><span class="feature-arrow" aria-hidden="true">&#x25B8;</span> AI-Powered Document Processing</li>
+            <li><span class="feature-arrow" aria-hidden="true">&#x25B8;</span> Intelligent Analytics Pipelines</li>
+          </ul>
+        </div>
+        <div class="card service-card" data-animate>
+          <span class="service-icon">03</span>
+          <h3>Operational Analytics & Technical Consulting</h3>
+          <p>Data infrastructure, analytics pipelines, and technical strategy for operators who need to make faster, better-informed decisions.</p>
+          <ul class="service-features">
+            <li><span class="feature-arrow" aria-hidden="true">&#x25B8;</span> Data Infrastructure Design</li>
+            <li><span class="feature-arrow" aria-hidden="true">&#x25B8;</span> Portfolio Dashboards & Reporting</li>
+            <li><span class="feature-arrow" aria-hidden="true">&#x25B8;</span> Technical Strategy & Architecture</li>
+            <li><span class="feature-arrow" aria-hidden="true">&#x25B8;</span> Implementation Oversight</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -487,6 +511,34 @@ mcp = FastMCP(<span class="code-str">"conatus-ops"</span>)
 
   .service-card h3 {
     margin-bottom: var(--space-sm);
+  }
+
+  .service-card > p {
+    font-size: 0.9rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .service-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-top: var(--space-sm);
+    padding: 0;
+  }
+
+  .service-features li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .feature-arrow {
+    color: var(--color-accent);
+    font-size: 0.7rem;
+    flex-shrink: 0;
   }
 
   .service-icon {
