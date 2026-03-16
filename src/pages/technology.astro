@@ -3,48 +3,131 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base
-  title="Technology"
-  description="Purpose-built technology and AI-powered workflows that give our real estate operations a structural advantage."
+  title="Technology — Conatus Real Estate Inc."
+  description="Fully custom AI-powered operations platforms — not SaaS products. Purpose-built software for your business, powered by Claude."
 >
   <section class="section">
     <div class="container--narrow">
       <p class="page-label">Technology</p>
-      <h1>Tools that create<br /><span class="accent">structural advantage</span></h1>
+      <h1>Your platform.<br /><span class="accent">Not theirs.</span></h1>
 
       <div class="prose">
         <p class="lead">
-          We build and deploy purpose-built technology to streamline every phase of
-          real estate operations &mdash; from market analysis to portfolio management.
+          We build fully customized software platforms for your business — not SaaS products
+          that solve some of your problems and a thousand more from other businesses that
+          have nothing to do with you.
         </p>
 
-        <h2>Our Technology Stack</h2>
+        <h2>The Problem with SaaS</h2>
         <p>
-          Rather than relying solely on off-the-shelf SaaS tools, we build custom
-          systems that compound operational efficiency over time. Our stack is designed
-          for speed, reliability, and maintainability.
+          Off-the-shelf software is built for the average customer. It has to be — the business
+          model demands it. That means every feature is a compromise, every workflow is generic,
+          and every integration is an afterthought. You end up paying for an elephant-sized
+          solution that addresses 60% of your needs and forces you to build workarounds for
+          the rest.
+        </p>
+        <p>
+          For operators in regulated industries, this isn't just inefficient — it's
+          a liability. Compliance requirements, domain-specific workflows, and
+          operational nuances don't fit neatly into someone else's product roadmap.
         </p>
 
-        <h2>AI-Powered Workflows</h2>
+        <h2>Custom-Built, AI-Powered</h2>
         <p>
-          We leverage AI orchestration to automate research, analysis, and reporting
-          tasks that traditionally require significant manual effort. Our AI workflows
-          handle market research, comparable analysis, and due diligence preparation
-          while maintaining human oversight on all critical decisions.
+          Every platform we build is designed from the ground up for one client's
+          specific operations. The result: software that fits your business like it was
+          built by your best operator — because it was, with the intelligence of Claude
+          woven into every layer.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section approach-section">
+    <div class="container">
+      <div class="approach-grid">
+        <div class="approach-card" data-animate>
+          <span class="approach-number">01</span>
+          <h3>Purpose-Built Architecture</h3>
+          <p>
+            Every data model, workflow, and interface is designed for your specific
+            operations. No unused features, no forced workarounds, no paying for
+            capabilities you'll never touch.
+          </p>
+        </div>
+        <div class="approach-card" data-animate>
+          <span class="approach-number">02</span>
+          <h3>Claude at the Core</h3>
+          <p>
+            AI isn't bolted on as a chatbot — it's embedded in the platform through
+            MCP tool definitions, autonomous agent workflows, and intelligent
+            analysis pipelines that understand your domain.
+          </p>
+        </div>
+        <div class="approach-card" data-animate>
+          <span class="approach-number">03</span>
+          <h3>You Own the Platform</h3>
+          <p>
+            No per-seat licensing, no vendor lock-in, no surprise price increases.
+            The platform is yours. We build it, we hand it over, and we support it
+            on your terms.
+          </p>
+        </div>
+        <div class="approach-card" data-animate>
+          <span class="approach-number">04</span>
+          <h3>Operator-Informed Design</h3>
+          <p>
+            We've operated the systems we build. Our platforms are designed by people
+            who understand the daily reality of running regulated operations — not by
+            product managers optimizing for the broadest possible market.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container--narrow">
+      <div class="prose">
+        <h2>How We Build</h2>
+        <p>
+          Our development practice is AI-native. We use Claude Code as core development
+          infrastructure — not just for code generation, but for architecture decisions,
+          testing strategies, and deployment automation. This means we build production
+          platforms faster than traditional development shops while maintaining higher
+          consistency and test coverage.
         </p>
 
-        <h2>Data Infrastructure</h2>
+        <h2>The Stack</h2>
         <p>
-          Clean data is the foundation of good decisions. We build data pipelines
-          that aggregate property data, market indicators, and portfolio metrics
-          into unified views that enable fast, confident decision-making.
+          We're technology-agnostic — we choose the right tools for each project, not the
+          ones we happen to know. That said, our platforms typically leverage:
         </p>
+        <ul>
+          <li><strong>Claude & MCP</strong> — AI intelligence integrated through Model Context Protocol for structured tool access and autonomous workflows</li>
+          <li><strong>Python & FastMCP</strong> — Backend services, data pipelines, and AI agent orchestration</li>
+          <li><strong>Modern frontends</strong> — React, Astro, or whatever fits the use case — chosen for the operator, not the developer</li>
+          <li><strong>Cloud infrastructure</strong> — Deployed on the infrastructure that makes sense for your security and compliance requirements</li>
+        </ul>
 
         <h2>Open Source Philosophy</h2>
         <p>
           Where possible, we contribute tooling and methodology back to the community.
-          We believe that transparency in our approach builds trust and drives the
-          industry forward.
+          Transparency in our approach builds trust and moves the industry forward.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container--narrow">
+      <div class="cta-content" data-animate>
+        <h2>Ready to replace the workarounds?</h2>
+        <p class="cta-lead">
+          If you're spending more time fighting your tools than doing your work,
+          let's talk about what a purpose-built platform could look like.
+        </p>
+        <a href="/contact" class="btn btn--primary">Get in Touch</a>
       </div>
     </div>
   </section>
@@ -68,4 +151,102 @@ import Base from '../layouts/Base.astro';
     color: var(--color-text-muted);
     margin-bottom: var(--space-xl);
   }
+
+  /* Approach Grid */
+  .approach-section {
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg-elevated);
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .approach-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    transition: border-color 0.3s ease;
+  }
+
+  .approach-card:hover {
+    border-color: var(--color-accent);
+  }
+
+  .approach-number {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: var(--space-sm);
+    letter-spacing: 0.05em;
+  }
+
+  .approach-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .approach-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* CTA */
+  .cta-section {
+    border-top: 1px solid var(--color-border);
+    background: var(--color-bg-elevated);
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-lead {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xl);
+    line-height: 1.7;
+  }
+
+  /* Scroll animations */
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  [data-animate].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 </style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  document.querySelectorAll('[data-animate]').forEach((el) => {
+    observer.observe(el);
+  });
+</script>

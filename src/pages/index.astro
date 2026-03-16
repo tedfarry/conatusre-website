@@ -92,25 +92,30 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
             <pre class="code-window__body"><code set:html={`<span class="code-kw">from</span> <span class="code-mod">fastmcp</span> <span class="code-kw">import</span> FastMCP
 <span class="code-kw">from</span> <span class="code-mod">pydantic</span> <span class="code-kw">import</span> BaseModel
 
-mcp = FastMCP(<span class="code-str">"conatus-ops"</span>)
+mcp = FastMCP(<span class="code-str">"conatus-acquisitions"</span>)
 
 <span class="code-kw">class</span> <span class="code-type">Deal</span>(BaseModel):
     asking: <span class="code-type">float</span>
     arv: <span class="code-type">float</span>
     monthly_rent: <span class="code-type">float</span>
     rehab: <span class="code-type">float</span> = <span class="code-num">0.0</span>
+    taxes_annual: <span class="code-type">float</span> = <span class="code-num">0.0</span>
+    insurance_annual: <span class="code-type">float</span> = <span class="code-num">0.0</span>
 
 <span class="code-decorator">@mcp.tool()</span>
 <span class="code-kw">def</span> <span class="code-fn">screen_acquisition</span>(deal: <span class="code-type">Deal</span>) -&gt; <span class="code-type">dict</span>:
-    <span class="code-str">"""Screen a potential SFR acquisition
-    against portfolio investment criteria."""</span>
+    <span class="code-str">"""Screen an SFR acquisition against
+    portfolio investment criteria."""</span>
     max_offer = deal.arv * <span class="code-num">0.70</span> - deal.rehab
-    cap = (deal.monthly_rent * <span class="code-num">12</span>) / deal.arv
-    coc = (deal.monthly_rent * <span class="code-num">12</span>) / (
-        deal.asking + deal.rehab
-    )
+    gross = deal.monthly_rent * <span class="code-num">12</span>
+    vacancy = gross * <span class="code-num">0.08</span>
+    opex = deal.taxes_annual + deal.insurance_annual
+    noi = gross - vacancy - opex
+    cap = noi / deal.arv
+    coc = noi / (deal.asking + deal.rehab)
     <span class="code-kw">return</span> {
         <span class="code-str">"max_offer"</span>: <span class="code-fn">round</span>(max_offer, <span class="code-num">2</span>),
+        <span class="code-str">"noi"</span>: <span class="code-fn">round</span>(noi, <span class="code-num">2</span>),
         <span class="code-str">"cap_rate"</span>: <span class="code-fn">round</span>(cap, <span class="code-num">4</span>),
         <span class="code-str">"cash_on_cash"</span>: <span class="code-fn">round</span>(coc, <span class="code-num">4</span>),
         <span class="code-str">"meets_criteria"</span>: cap &gt;= <span class="code-num">0.08</span>
@@ -241,7 +246,7 @@ mcp = FastMCP(<span class="code-str">"conatus-ops"</span>)
         </div>
         <div class="domain-card">
           <h3>Asset Management</h3>
-          <p>Deep experience managing SFR portfolios — lease-ups, HCV compliance, inspections, and housing authority coordination. Platform-ready for broader asset classes.</p>
+          <p>Deep experience managing single-family residential portfolios — lease-ups, HCV compliance, inspections, and housing authority coordination. Applying the same platform approach to broader asset classes.</p>
         </div>
       </div>
     </div>
@@ -251,8 +256,9 @@ mcp = FastMCP(<span class="code-str">"conatus-ops"</span>)
   <section class="section legacy-section">
     <div class="container">
       <div class="section-header" data-animate>
-        <p class="section-header__label">Existing Clients & Investors</p>
-        <h2>Investment & Advisory</h2>
+        <p class="section-header__label">Investment & Advisory</p>
+        <h2>Conatus Ventures</h2>
+        <p class="section-header__desc">In addition to technology consulting, Conatus Real Estate Inc. maintains active investment and advisory relationships.</p>
       </div>
       <div class="legacy-grid" data-animate>
         <div class="card legacy-card">
@@ -501,6 +507,13 @@ mcp = FastMCP(<span class="code-str">"conatus-ops"</span>)
     color: var(--color-accent);
     margin-bottom: var(--space-sm);
     font-weight: 500;
+  }
+
+  .section-header__desc {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    max-width: 540px;
+    margin-top: var(--space-sm);
   }
 
   .services-grid {
