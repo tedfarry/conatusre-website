@@ -1,0 +1,290 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+const allServices = (await getCollection('services', ({ data }) => !data.draft))
+  .sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+---
+
+<Base
+  title="Services — Conatus Real Estate"
+  description="Custom operations platforms, Claude AI integration, analytics consulting, and technology advisory for regulated industries."
+>
+  <section class="section">
+    <div class="container">
+      <div class="page-header">
+        <p class="page-label">Services</p>
+        <h1>Your platform,<br /><span class="accent">not theirs</span></h1>
+        <p class="page-description">
+          We build fully custom operations platforms — not SaaS products that solve
+          half your problems. Built by operators with deep domain expertise, powered
+          by AI.
+        </p>
+      </div>
+
+      <!-- Core Services from Collection -->
+      <div class="services-grid">
+        {allServices.map(async (service) => {
+          const { Content } = await render(service);
+          return (
+            <div class="card service-card">
+              {service.data.icon && <span class="service-icon">{service.data.icon}</span>}
+              <h2>{service.data.title}</h2>
+              <p class="service-description">{service.data.description}</p>
+              <div class="prose service-content">
+                <Content />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- SFR Services -->
+      <div class="section-divider">
+        <div class="section-header">
+          <p class="section-header__label">Domain Expertise</p>
+          <h2>Single-Family Residential</h2>
+        </div>
+        <p class="section-lead">
+          SFR is our deepest domain. We've built and operated at every level of the SFR
+          stack — acquisitions, asset management, HCV operations, and compliance.
+        </p>
+        <div class="sfr-grid">
+          <div class="sfr-card">
+            <h3>Acquisitions Pipeline</h3>
+            <p>
+              Lead ingestion, data enrichment, automated underwriting, and offer
+              management. Purpose-built for high-volume SFR acquisitions.
+            </p>
+          </div>
+          <div class="sfr-card">
+            <h3>Asset Management</h3>
+            <p>
+              Portfolio dashboards, tenant management, HCV compliance tracking,
+              inspection coordination, and housing authority integration.
+            </p>
+          </div>
+          <div class="sfr-card">
+            <h3>Compliance & Reporting</h3>
+            <p>
+              Automated compliance workflows, audit trail generation, and regulatory
+              reporting for HCV, fair housing, and state-specific requirements.
+            </p>
+          </div>
+          <div class="sfr-card">
+            <h3>1031 Exchange Consulting</h3>
+            <p>
+              Strategic consulting for investors executing 1031 exchanges within the
+              SFR space — identification, analysis, and acquisition support.
+            </p>
+            <a href="/1031-exchange-calculator" class="btn btn--outline btn--sm">Exchange Calculator &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technology & Operations Consulting -->
+      <div class="section-divider">
+        <div class="section-header">
+          <p class="section-header__label">Broader Capabilities</p>
+          <h2>Technology & Operations Consulting</h2>
+        </div>
+        <p class="section-lead">
+          Beyond SFR, we apply the same operator-first approach to technology and
+          operations consulting across regulated industries.
+        </p>
+        <div class="consulting-grid">
+          <div class="card consulting-card">
+            <h3>Technical Strategy & Architecture</h3>
+            <p>
+              Architecture reviews, technology roadmapping, build-vs-buy analysis, and
+              vendor evaluation. Grounded in real operational requirements, not theory.
+            </p>
+          </div>
+          <div class="card consulting-card">
+            <h3>AI Workflow Design</h3>
+            <p>
+              Assessment of where AI can genuinely improve operations. We design
+              workflows that use Claude for analysis, processing, and automation —
+              with human oversight built in from the start.
+            </p>
+          </div>
+          <div class="card consulting-card">
+            <h3>Operations Process Engineering</h3>
+            <p>
+              Workflow analysis, bottleneck identification, and process redesign. We
+              map existing operations and design technology-supported improvements
+              that operators will actually adopt.
+            </p>
+          </div>
+          <div class="card consulting-card">
+            <h3>Data Infrastructure</h3>
+            <p>
+              Pipeline design, data warehouse architecture, and analytics infrastructure
+              for operators who need faster, better-informed decision-making.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="services-cta">
+        <h2>Ready to build?</h2>
+        <p>
+          Whether you need a custom operations platform, AI integration, or
+          technology consulting — let's talk about what you're trying to solve.
+        </p>
+        <a href="/contact" class="btn btn--primary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-header {
+    margin-bottom: var(--space-2xl);
+    max-width: 600px;
+  }
+
+  .page-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .page-description {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .service-card h2 {
+    font-size: 1.35rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .service-description {
+    font-size: 0.95rem;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+    font-style: italic;
+  }
+
+  .service-content {
+    font-size: 0.9rem;
+    max-width: none;
+  }
+
+  .service-content :global(p) {
+    margin-bottom: var(--space-sm);
+  }
+
+  .service-icon {
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    color: var(--color-accent);
+    margin-bottom: var(--space-sm);
+    display: block;
+    letter-spacing: 0.05em;
+  }
+
+  .section-divider {
+    padding-top: var(--space-2xl);
+    border-top: 1px solid var(--color-border);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-md);
+  }
+
+  .section-header__label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-sm);
+    font-weight: 500;
+  }
+
+  .section-lead {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    max-width: 640px;
+    margin-bottom: var(--space-xl);
+  }
+
+  .sfr-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .sfr-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    transition: border-color 0.3s ease;
+  }
+
+  .sfr-card:hover {
+    border-color: var(--color-accent);
+  }
+
+  .sfr-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .sfr-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .btn--sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .consulting-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .consulting-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .consulting-card p {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .services-cta {
+    text-align: center;
+    padding: var(--space-2xl) 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .services-cta h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .services-cta p {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    max-width: 480px;
+    margin: 0 auto var(--space-lg);
+  }
+</style>

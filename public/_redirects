@@ -1,4 +1,14 @@
 # Cloudflare Pages redirects
 # Format: /old-path /new-path [status-code]
-# Add redirects here when migrating from WordPress URLs
 # See: https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Service section anchor now has dedicated page
+/#services /services 301
+
+# Legacy recent-closings redirects to case studies
+/recent-closings /case-studies 301
+/recent-closings/ /case-studies 301
+
+# Leadership page consolidated into about
+/leadership /about 301
+/leadership/ /about 301
