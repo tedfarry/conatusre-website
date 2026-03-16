@@ -65,7 +65,6 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
           </svg>
           <div class="hero__hex-glow"></div>
         </div>
-        <p class="hero__brand-name">Conatus Real Estate Inc.</p>
       </div>
     </div>
   </section>
@@ -307,13 +306,13 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
           <span class="platform-tag">Acquisitions</span>
           <h3>Fortune Acquisitions</h3>
           <p>Proprietary acquisitions platform that systematically pulls live lead feeds, enriches every data record, provides an underwriting environment, and allows underwriters to submit offers automatically.</p>
-          <a href="/case-studies" class="btn btn--outline btn--sm">Learn More &rarr;</a>
+          <a href="https://fortuneacquisitions.com" class="btn btn--outline btn--sm" target="_blank" rel="noopener">Fortune Acquisitions &rarr;</a>
         </div>
         <div class="card platform-card">
-          <span class="platform-tag">Asset Management</span>
-          <h3>Integrated AM Platform</h3>
-          <p>AI-driven asset management platform purpose-built for leasing to Housing Choice Voucher tenants — inspections, compliance, housing authority coordination, and portfolio reporting.</p>
-          <a href="/case-studies" class="btn btn--outline btn--sm">Learn More &rarr;</a>
+          <span class="platform-tag">1031 Exchange</span>
+          <h3>1031 Exchange Consulting</h3>
+          <p>Strategic consulting for investors executing 1031 exchanges within the single-family residential space, including identification, analysis, and acquisition support.</p>
+          <a href="/contact" class="btn btn--outline btn--sm">Inquire &rarr;</a>
         </div>
         <div class="card platform-card">
           <span class="platform-tag">Consulting</span>
@@ -370,20 +369,6 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
           Claude inside your existing systems, or need operational analytics consulting
           — let's talk.
         </p>
-        <div class="cta-contact">
-          <div class="cta-contact__item">
-            <span class="cta-contact__label">Email</span>
-            <a href="mailto:houses@conatusre.com">houses@conatusre.com</a>
-          </div>
-          <div class="cta-contact__item">
-            <span class="cta-contact__label">Phone</span>
-            <a href="tel:+19492673990">(949) 267-3990</a>
-          </div>
-          <div class="cta-contact__item">
-            <span class="cta-contact__label">Office</span>
-            <span class="cta-contact__text">5000 Birch Street, Suite 3000<br />Newport Beach, CA 92660</span>
-          </div>
-        </div>
         <div class="cta-actions">
           <a href="/contact" class="btn btn--primary">Get in Touch</a>
         </div>
@@ -448,10 +433,8 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
   /* Hero hexagon visual */
   .hero__visual {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: var(--space-lg);
   }
 
   .hero__hexagon-display {
@@ -493,15 +476,6 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     background: radial-gradient(circle, rgba(200, 169, 110, 0.12) 0%, transparent 70%);
     filter: blur(40px);
     pointer-events: none;
-  }
-
-  .hero__brand-name {
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--color-text-muted);
-    text-align: center;
   }
 
   @media (max-width: 768px) {
@@ -913,35 +887,6 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     color: var(--color-text-muted);
     margin-bottom: var(--space-xl);
     line-height: 1.7;
-  }
-
-  .cta-contact {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-xl);
-    margin-bottom: var(--space-xl);
-    flex-wrap: wrap;
-  }
-
-  .cta-contact__item {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-
-  .cta-contact__label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-accent);
-    font-weight: 500;
-  }
-
-  .cta-contact__item a,
-  .cta-contact__text {
-    font-size: 0.95rem;
-    color: var(--color-text);
-    line-height: 1.5;
   }
 
   .cta-actions {
