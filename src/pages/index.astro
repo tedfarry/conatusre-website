@@ -38,32 +38,11 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
         </div>
       </div>
       <div class="hero__visual" data-animate>
-        <div class="hero__hexagon-display">
-          <svg class="hero__hexagon-outer" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Outer hexagon ring -->
-            <polygon points="150,15 270,82 270,218 150,285 30,218 30,82" stroke="rgba(200,169,110,0.12)" stroke-width="1" fill="none" />
-            <!-- Middle hexagon ring -->
-            <polygon points="150,35 252,94 252,206 150,265 48,206 48,94" stroke="rgba(200,169,110,0.2)" stroke-width="1" fill="none" class="hex-mid" />
-            <!-- Inner hexagon ring -->
-            <polygon points="150,55 234,106 234,194 150,245 66,194 66,106" stroke="rgba(200,169,110,0.35)" stroke-width="1.5" fill="none" class="hex-inner" />
-            <!-- Core hexagon with subtle fill -->
-            <polygon points="150,80 213,117 213,183 150,220 87,183 87,117" stroke="var(--color-accent)" stroke-width="1.5" fill="rgba(200,169,110,0.06)" class="hex-core" />
-            <!-- Connecting lines from vertices -->
-            <line x1="150" y1="80" x2="150" y2="15" stroke="rgba(200,169,110,0.08)" stroke-width="0.5" />
-            <line x1="213" y1="117" x2="270" y2="82" stroke="rgba(200,169,110,0.08)" stroke-width="0.5" />
-            <line x1="213" y1="183" x2="270" y2="218" stroke="rgba(200,169,110,0.08)" stroke-width="0.5" />
-            <line x1="150" y1="220" x2="150" y2="285" stroke="rgba(200,169,110,0.08)" stroke-width="0.5" />
-            <line x1="87" y1="183" x2="30" y2="218" stroke="rgba(200,169,110,0.08)" stroke-width="0.5" />
-            <line x1="87" y1="117" x2="30" y2="82" stroke="rgba(200,169,110,0.08)" stroke-width="0.5" />
-            <!-- Node dots at core vertices -->
-            <circle cx="150" cy="80" r="3" fill="var(--color-accent)" opacity="0.6" />
-            <circle cx="213" cy="117" r="3" fill="var(--color-accent)" opacity="0.6" />
-            <circle cx="213" cy="183" r="3" fill="var(--color-accent)" opacity="0.6" />
-            <circle cx="150" cy="220" r="3" fill="var(--color-accent)" opacity="0.6" />
-            <circle cx="87" cy="183" r="3" fill="var(--color-accent)" opacity="0.6" />
-            <circle cx="87" cy="117" r="3" fill="var(--color-accent)" opacity="0.6" />
-          </svg>
-          <div class="hero__hex-glow"></div>
+        <div class="hero__hex-grid" aria-hidden="true">
+          <div class="hex hex--1"></div>
+          <div class="hex hex--2"></div>
+          <div class="hex hex--3"></div>
+          <div class="hex hex--4"></div>
         </div>
       </div>
     </div>
@@ -295,7 +274,7 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
   </section>
 
   <!-- The Platform -->
-  <section class="section legacy-section">
+  <section class="section platform-section">
     <div class="container">
       <div class="section-header" data-animate>
         <p class="section-header__label">The Platform</p>
@@ -430,52 +409,54 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     flex-wrap: wrap;
   }
 
-  /* Hero hexagon visual */
+  /* Hero abstract visual */
   .hero__visual {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .hero__hexagon-display {
+  .hero__hex-grid {
     position: relative;
-    width: 280px;
-    height: 280px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 320px;
+    height: 320px;
   }
 
-  .hero__hexagon-outer {
-    width: 100%;
-    height: 100%;
-  }
-
-  .hex-mid {
-    animation: hex-pulse 4s ease-in-out infinite;
-  }
-
-  .hex-inner {
-    animation: hex-pulse 4s ease-in-out infinite 0.5s;
-  }
-
-  .hex-core {
-    animation: hex-pulse 4s ease-in-out infinite 1s;
-  }
-
-  @keyframes hex-pulse {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
-  }
-
-  .hero__hex-glow {
+  .hex {
     position: absolute;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(200, 169, 110, 0.12) 0%, transparent 70%);
-    filter: blur(40px);
-    pointer-events: none;
+    width: 100px;
+    height: 115px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .hex--1 {
+    top: 10px;
+    left: 110px;
+    background: var(--color-accent);
+    opacity: 0.9;
+  }
+
+  .hex--2 {
+    top: 95px;
+    left: 30px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    opacity: 0.7;
+  }
+
+  .hex--3 {
+    top: 95px;
+    left: 190px;
+    background: #5b9e8f;
+    opacity: 0.6;
+  }
+
+  .hex--4 {
+    top: 180px;
+    left: 110px;
+    background: var(--color-bg-elevated);
+    opacity: 0.5;
   }
 
   @media (max-width: 768px) {
@@ -484,17 +465,11 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     }
 
     .hero__visual {
-      order: -1;
-    }
-
-    .hero__hexagon-display {
-      width: 200px;
-      height: 200px;
+      display: none;
     }
 
     .hero {
-      min-height: auto;
-      padding: var(--space-xl) 0 var(--space-2xl);
+      min-height: 70vh;
     }
   }
 
@@ -804,7 +779,7 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
   /* ========================
      The Platform Section
      ======================== */
-  .legacy-section {
+  .platform-section {
     border-top: 1px solid var(--color-border);
   }
 
