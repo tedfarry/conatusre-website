@@ -3,104 +3,81 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base
-  title="Contact — Conatus Real Estate"
-  description="Get in touch with Conatus Real Estate for consulting, partnership opportunities, or general inquiries."
+  title="Contact — Conatus Real Estate Inc."
+  description="Tell us about your project. We build custom AI-powered operations platforms for regulated industries."
 >
   <section class="section">
     <div class="container--narrow">
-      <p class="page-label">Contact</p>
-      <h1>Let's <span class="accent">talk</span></h1>
+      <p class="page-label">Get Started</p>
+      <h1>Let's build <span class="accent">together</span></h1>
 
       <div class="prose">
         <p class="lead">
-          Whether you're looking to build a new operations platform, integrate AI into
-          existing systems, or need technical consulting — we'd like to hear from you.
+          Tell us about your operations and where technology could help.
+          We'll get back to you within one business day.
         </p>
       </div>
 
-      <div class="contact-layout">
-        <!-- Contact Form -->
-        <div class="contact-form-wrapper">
-          <form
-            id="contact-form"
-            action="https://formspree.io/f/xdkgpbpn"
-            method="POST"
-            class="contact-form"
-          >
-            <div class="form-row">
-              <div class="form-group">
-                <label for="first-name">First Name <span class="required">*</span></label>
-                <input type="text" id="first-name" name="firstName" required />
-              </div>
-              <div class="form-group">
-                <label for="last-name">Last Name <span class="required">*</span></label>
-                <input type="text" id="last-name" name="lastName" required />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="email">Email <span class="required">*</span></label>
-              <input type="email" id="email" name="email" required />
-            </div>
-
-            <div class="form-group">
-              <label for="company">Company / Organization</label>
-              <input type="text" id="company" name="company" />
-            </div>
-
-            <div class="form-group">
-              <label for="inquiry-type">Inquiry Type</label>
-              <select id="inquiry-type" name="inquiryType">
-                <option value="">Select...</option>
-                <option value="platform">Custom Operations Platform</option>
-                <option value="claude">Claude / AI Integration</option>
-                <option value="consulting">Technical Consulting</option>
-                <option value="investment">Investment & Advisory</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Message <span class="required">*</span></label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-
-            <!-- Honeypot for spam prevention -->
-            <input type="text" name="_gotcha" style="display:none" />
-
-            <button type="submit" class="btn btn--primary btn--full">Send Message</button>
-          </form>
-
-          <div id="form-success" class="form-status form-status--success" style="display:none">
-            <h3>Message sent</h3>
-            <p>We'll get back to you shortly.</p>
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first_name">First Name <span class="required">*</span></label>
+            <input type="text" id="first_name" name="first_name" required autocomplete="given-name" />
           </div>
-
-          <div id="form-error" class="form-status form-status--error" style="display:none">
-            <h3>Something went wrong</h3>
-            <p>Please try again or email us directly at <a href="mailto:houses@conatusre.com">houses@conatusre.com</a>.</p>
+          <div class="form-group">
+            <label for="last_name">Last Name <span class="required">*</span></label>
+            <input type="text" id="last_name" name="last_name" required autocomplete="family-name" />
           </div>
         </div>
 
-        <!-- Contact Details -->
-        <div class="contact-details">
-          <div class="card">
-            <h3>Email</h3>
-            <p>For inquiries and consulting engagements.</p>
-            <a href="mailto:houses@conatusre.com" class="btn btn--outline">houses@conatusre.com</a>
-          </div>
-
-          <div class="card">
-            <h3>Phone</h3>
-            <p>Call us directly to discuss your project.</p>
-            <a href="tel:+19492673990" class="btn btn--outline">(949) 267-3990</a>
-          </div>
-
-          <div class="card">
-            <h3>Office</h3>
-            <p>5000 Birch Street, Suite 3000<br />Newport Beach, CA 92660</p>
-          </div>
+        <div class="form-group">
+          <label for="email">Work Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" required autocomplete="email" />
         </div>
+
+        <div class="form-group">
+          <label for="company">Company / Organization</label>
+          <input type="text" id="company" name="company" autocomplete="organization" />
+        </div>
+
+        <div class="form-group">
+          <label for="inquiry_type">How can we help?</label>
+          <select id="inquiry_type" name="inquiry_type">
+            <option value="">Select an option</option>
+            <option value="platform">Custom Operations Platform</option>
+            <option value="claude">Claude / AI Integration</option>
+            <option value="consulting">Technical Consulting</option>
+            <option value="investment">Investment & Advisory</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Tell us about your project <span class="required">*</span></label>
+          <textarea id="message" name="message" rows="5" required placeholder="What operational challenges are you looking to solve?"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--full" id="submit-btn">
+          Send Message
+        </button>
+
+        <p class="form-disclaimer">
+          By submitting this form, you agree to be contacted about our services.
+          We respect your privacy and will not share your information.
+        </p>
+      </form>
+
+      <div id="form-success" class="form-success" style="display: none;">
+        <div class="success-icon" aria-hidden="true">&#x2713;</div>
+        <h2>Message sent</h2>
+        <p>Thank you for reaching out. We'll get back to you within one business day.</p>
+        <a href="/" class="btn btn--outline">Back to Home</a>
+      </div>
+
+      <div id="form-error" class="form-error" style="display: none;">
+        <p>Something went wrong. Please try again or email us directly at
+          <a href="mailto:houses@conatusre.com">houses@conatusre.com</a>.
+        </p>
       </div>
     </div>
   </section>
@@ -124,24 +101,24 @@ import Base from '../layouts/Base.astro';
     color: var(--color-text-muted);
   }
 
-  .contact-layout {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: var(--space-xl);
-    margin-top: var(--space-xl);
-  }
-
-  /* Form styles */
+  /* Form Styles */
   .contact-form {
+    margin-top: var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    gap: var(--space-lg);
   }
 
   .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-md);
+  }
+
+  @media (max-width: 480px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
   }
 
   .form-group {
@@ -172,6 +149,7 @@ import Base from '../layouts/Base.astro';
     font-size: 0.95rem;
     color: var(--color-text);
     transition: border-color 0.2s ease;
+    width: 100%;
   }
 
   .form-group input:focus,
@@ -181,12 +159,24 @@ import Base from '../layouts/Base.astro';
     border-color: var(--color-accent);
   }
 
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--color-text-muted);
+    opacity: 0.5;
+  }
+
   .form-group select {
+    cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a0998e' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a0998e' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1rem center;
     padding-right: 2.5rem;
+  }
+
+  .form-group select option {
+    background: var(--color-bg-card);
+    color: var(--color-text);
   }
 
   .form-group textarea {
@@ -194,79 +184,138 @@ import Base from '../layouts/Base.astro';
     min-height: 120px;
   }
 
+  .form-group input.invalid,
+  .form-group textarea.invalid {
+    border-color: #c86e6e;
+  }
+
   .btn--full {
     width: 100%;
     justify-content: center;
+    padding: 1rem;
+    font-size: 1rem;
   }
 
-  .form-status {
-    padding: var(--space-lg);
-    border-radius: 12px;
+  .btn--full:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .form-disclaimer {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
     text-align: center;
+    margin: 0;
   }
 
-  .form-status--success {
-    background: rgba(126, 200, 164, 0.1);
-    border: 1px solid rgba(126, 200, 164, 0.3);
+  /* Success State */
+  .form-success {
+    text-align: center;
+    padding: var(--space-2xl) 0;
   }
 
-  .form-status--success h3 {
-    color: #7ec8a4;
-    margin-bottom: var(--space-sm);
-  }
-
-  .form-status--error {
-    background: rgba(200, 126, 126, 0.1);
-    border: 1px solid rgba(200, 126, 126, 0.3);
-  }
-
-  .form-status--error h3 {
-    color: #c87e7e;
-    margin-bottom: var(--space-sm);
-  }
-
-  /* Contact details */
-  .contact-details {
+  .success-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(200, 169, 110, 0.15);
+    color: var(--color-accent);
+    font-size: 1.5rem;
     display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-lg);
   }
 
-  @media (max-width: 768px) {
-    .contact-layout {
-      grid-template-columns: 1fr;
-    }
+  .form-success h2 {
+    margin-bottom: var(--space-sm);
+  }
 
-    .form-row {
-      grid-template-columns: 1fr;
-    }
+  .form-success p {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  /* Error State */
+  .form-error {
+    background: rgba(200, 110, 110, 0.1);
+    border: 1px solid rgba(200, 110, 110, 0.3);
+    border-radius: 8px;
+    padding: var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  .form-error p {
+    color: #e8b4b4;
+    font-size: 0.9rem;
+    margin: 0;
   }
 </style>
 
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
   const successEl = document.getElementById('form-success')!;
   const errorEl = document.getElementById('form-error')!;
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
+    errorEl.style.display = 'none';
+
+    // Clear previous invalid states
+    form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+
+    // Validate required fields
+    const required = form.querySelectorAll('[required]') as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+    let valid = true;
+    required.forEach(field => {
+      if (!field.value.trim()) {
+        field.classList.add('invalid');
+        valid = false;
+      }
+    });
+
+    // Validate email format
+    const email = form.querySelector('#email') as HTMLInputElement;
+    if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      email.classList.add('invalid');
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
     const data = new FormData(form);
+    const payload = Object.fromEntries(data.entries());
 
     try {
-      const response = await fetch(form.action, {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       });
 
-      if (response.ok) {
+      if (res.ok) {
         form.style.display = 'none';
         successEl.style.display = 'block';
       } else {
-        errorEl.style.display = 'block';
+        throw new Error('Submit failed');
       }
     } catch {
-      errorEl.style.display = 'block';
+      // Fallback: open mailto with form data
+      const subject = encodeURIComponent(`New inquiry from ${payload.first_name} ${payload.last_name}`);
+      const body = encodeURIComponent(
+        `Name: ${payload.first_name} ${payload.last_name}\n` +
+        `Email: ${payload.email}\n` +
+        `Company: ${payload.company || 'N/A'}\n` +
+        `Inquiry: ${payload.inquiry_type || 'N/A'}\n\n` +
+        `Message:\n${payload.message}`
+      );
+      window.location.href = `mailto:houses@conatusre.com?subject=${subject}&body=${body}`;
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
     }
   });
 </script>
