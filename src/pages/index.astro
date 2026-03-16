@@ -38,16 +38,32 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
         </div>
       </div>
       <div class="hero__visual" data-animate>
-        <div class="hero__brand-display">
-          <div class="hero__brand-ring"></div>
-          <div class="hero__brand-glow"></div>
-          <img
-            src="/assets/brand/ConatusREIcon500-300x300.png"
-            alt="Conatus Real Estate"
-            class="hero__brand-mark"
-            width="180"
-            height="180"
-          />
+        <div class="hero__hexagon-display">
+          <svg class="hero__hexagon-outer" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Outer hexagon ring -->
+            <polygon points="150,15 270,82 270,218 150,285 30,218 30,82" stroke="rgba(200,169,110,0.12)" stroke-width="1" fill="none" />
+            <!-- Middle hexagon ring -->
+            <polygon points="150,35 252,94 252,206 150,265 48,206 48,94" stroke="rgba(200,169,110,0.2)" stroke-width="1" fill="none" class="hex-mid" />
+            <!-- Inner hexagon ring -->
+            <polygon points="150,55 234,106 234,194 150,245 66,194 66,106" stroke="rgba(200,169,110,0.35)" stroke-width="1.5" fill="none" class="hex-inner" />
+            <!-- Core hexagon with subtle fill -->
+            <polygon points="150,80 213,117 213,183 150,220 87,183 87,117" stroke="var(--color-accent)" stroke-width="1.5" fill="rgba(200,169,110,0.06)" class="hex-core" />
+            <!-- Connecting lines from vertices -->
+            <line x1="150" y1="80" x2="150" y2="15" stroke="rgba(200,169,110,0.08)" stroke-width="0.5" />
+            <line x1="213" y1="117" x2="270" y2="82" stroke="rgba(200,169,110,0.08)" stroke-width="0.5" />
+            <line x1="213" y1="183" x2="270" y2="218" stroke="rgba(200,169,110,0.08)" stroke-width="0.5" />
+            <line x1="150" y1="220" x2="150" y2="285" stroke="rgba(200,169,110,0.08)" stroke-width="0.5" />
+            <line x1="87" y1="183" x2="30" y2="218" stroke="rgba(200,169,110,0.08)" stroke-width="0.5" />
+            <line x1="87" y1="117" x2="30" y2="82" stroke="rgba(200,169,110,0.08)" stroke-width="0.5" />
+            <!-- Node dots at core vertices -->
+            <circle cx="150" cy="80" r="3" fill="var(--color-accent)" opacity="0.6" />
+            <circle cx="213" cy="117" r="3" fill="var(--color-accent)" opacity="0.6" />
+            <circle cx="213" cy="183" r="3" fill="var(--color-accent)" opacity="0.6" />
+            <circle cx="150" cy="220" r="3" fill="var(--color-accent)" opacity="0.6" />
+            <circle cx="87" cy="183" r="3" fill="var(--color-accent)" opacity="0.6" />
+            <circle cx="87" cy="117" r="3" fill="var(--color-accent)" opacity="0.6" />
+          </svg>
+          <div class="hero__hex-glow"></div>
         </div>
         <p class="hero__brand-name">Conatus Real Estate Inc.</p>
       </div>
@@ -81,46 +97,73 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
             </li>
           </ul>
         </div>
-        <div class="claude-code" data-animate>
-          <div class="code-window">
-            <div class="code-window__header">
-              <span class="code-window__dot"></span>
-              <span class="code-window__dot"></span>
-              <span class="code-window__dot"></span>
-              <span class="code-window__title">acquisition_screen.py</span>
+        <div class="claude-diagram" data-animate>
+          <div class="diagram-window">
+            <div class="diagram-window__header">
+              <span class="diagram-window__dot"></span>
+              <span class="diagram-window__dot"></span>
+              <span class="diagram-window__dot"></span>
+              <span class="diagram-window__title">AI Platform Architecture</span>
             </div>
-            <pre class="code-window__body"><code set:html={`<span class="code-kw">from</span> <span class="code-mod">fastmcp</span> <span class="code-kw">import</span> FastMCP
-<span class="code-kw">from</span> <span class="code-mod">pydantic</span> <span class="code-kw">import</span> BaseModel
+            <div class="diagram-window__body">
+              <svg class="workflow-svg" viewBox="0 0 440 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Data Sources row -->
+                <rect x="20" y="20" width="120" height="50" rx="8" stroke="var(--color-accent)" stroke-width="1" fill="rgba(200,169,110,0.06)" />
+                <text x="80" y="40" text-anchor="middle" fill="var(--color-text)" font-size="11" font-family="var(--font-body)">Data Sources</text>
+                <text x="80" y="55" text-anchor="middle" fill="var(--color-text-muted)" font-size="9" font-family="var(--font-mono)">APIs · DBs · Feeds</text>
 
-mcp = FastMCP(<span class="code-str">"conatus-acquisitions"</span>)
+                <rect x="160" y="20" width="120" height="50" rx="8" stroke="var(--color-border)" stroke-width="1" fill="rgba(200,169,110,0.03)" />
+                <text x="220" y="40" text-anchor="middle" fill="var(--color-text)" font-size="11" font-family="var(--font-body)">Documents</text>
+                <text x="220" y="55" text-anchor="middle" fill="var(--color-text-muted)" font-size="9" font-family="var(--font-mono)">PDFs · Contracts</text>
 
-<span class="code-kw">class</span> <span class="code-type">Deal</span>(BaseModel):
-    asking: <span class="code-type">float</span>
-    arv: <span class="code-type">float</span>
-    monthly_rent: <span class="code-type">float</span>
-    rehab: <span class="code-type">float</span> = <span class="code-num">0.0</span>
-    taxes_annual: <span class="code-type">float</span> = <span class="code-num">0.0</span>
-    insurance_annual: <span class="code-type">float</span> = <span class="code-num">0.0</span>
+                <rect x="300" y="20" width="120" height="50" rx="8" stroke="var(--color-border)" stroke-width="1" fill="rgba(200,169,110,0.03)" />
+                <text x="360" y="40" text-anchor="middle" fill="var(--color-text)" font-size="11" font-family="var(--font-body)">Live Feeds</text>
+                <text x="360" y="55" text-anchor="middle" fill="var(--color-text-muted)" font-size="9" font-family="var(--font-mono)">MLS · Markets</text>
 
-<span class="code-decorator">@mcp.tool()</span>
-<span class="code-kw">def</span> <span class="code-fn">screen_acquisition</span>(deal: <span class="code-type">Deal</span>) -&gt; <span class="code-type">dict</span>:
-    <span class="code-str">"""Screen an SFR acquisition against
-    portfolio investment criteria."""</span>
-    max_offer = deal.arv * <span class="code-num">0.70</span> - deal.rehab
-    gross = deal.monthly_rent * <span class="code-num">12</span>
-    vacancy = gross * <span class="code-num">0.08</span>
-    opex = deal.taxes_annual + deal.insurance_annual
-    noi = gross - vacancy - opex
-    cap = noi / deal.arv
-    coc = noi / (deal.asking + deal.rehab)
-    <span class="code-kw">return</span> {
-        <span class="code-str">"max_offer"</span>: <span class="code-fn">round</span>(max_offer, <span class="code-num">2</span>),
-        <span class="code-str">"noi"</span>: <span class="code-fn">round</span>(noi, <span class="code-num">2</span>),
-        <span class="code-str">"cap_rate"</span>: <span class="code-fn">round</span>(cap, <span class="code-num">4</span>),
-        <span class="code-str">"cash_on_cash"</span>: <span class="code-fn">round</span>(coc, <span class="code-num">4</span>),
-        <span class="code-str">"meets_criteria"</span>: cap &gt;= <span class="code-num">0.08</span>
-            <span class="code-kw">and</span> max_offer &gt;= deal.asking,
-    }`} /></pre>
+                <!-- Arrows down to RAG -->
+                <line x1="80" y1="70" x2="220" y2="110" stroke="rgba(200,169,110,0.3)" stroke-width="1" />
+                <line x1="220" y1="70" x2="220" y2="110" stroke="rgba(200,169,110,0.3)" stroke-width="1" />
+                <line x1="360" y1="70" x2="220" y2="110" stroke="rgba(200,169,110,0.3)" stroke-width="1" />
+
+                <!-- RAG Layer -->
+                <rect x="120" y="110" width="200" height="55" rx="8" stroke="var(--color-accent)" stroke-width="1.5" fill="rgba(200,169,110,0.08)" />
+                <text x="220" y="132" text-anchor="middle" fill="var(--color-accent)" font-size="12" font-weight="600" font-family="var(--font-body)">RAG Pipeline</text>
+                <text x="220" y="150" text-anchor="middle" fill="var(--color-text-muted)" font-size="9" font-family="var(--font-mono)">Embed · Index · Retrieve</text>
+
+                <!-- Arrow down to Claude -->
+                <line x1="220" y1="165" x2="220" y2="195" stroke="rgba(200,169,110,0.4)" stroke-width="1.5" />
+                <polygon points="215,193 220,200 225,193" fill="var(--color-accent)" opacity="0.5" />
+
+                <!-- Claude / MCP Core -->
+                <rect x="80" y="200" width="280" height="65" rx="10" stroke="var(--color-accent)" stroke-width="2" fill="rgba(200,169,110,0.1)" />
+                <text x="220" y="224" text-anchor="middle" fill="var(--color-accent)" font-size="13" font-weight="700" font-family="var(--font-body)">Claude + MCP Tools</text>
+                <text x="220" y="245" text-anchor="middle" fill="var(--color-text-muted)" font-size="9" font-family="var(--font-mono)">Analyze · Decide · Execute · Report</text>
+
+                <!-- DAG branches -->
+                <line x1="140" y1="265" x2="80" y2="305" stroke="rgba(200,169,110,0.3)" stroke-width="1" />
+                <polygon points="76,301 80,310 85,303" fill="var(--color-accent)" opacity="0.4" />
+                <line x1="220" y1="265" x2="220" y2="305" stroke="rgba(200,169,110,0.3)" stroke-width="1" />
+                <polygon points="215,303 220,310 225,303" fill="var(--color-accent)" opacity="0.4" />
+                <line x1="300" y1="265" x2="360" y2="305" stroke="rgba(200,169,110,0.3)" stroke-width="1" />
+                <polygon points="355,303 360,310 364,301" fill="var(--color-accent)" opacity="0.4" />
+
+                <!-- Output DAG nodes -->
+                <rect x="20" y="310" width="120" height="50" rx="8" stroke="var(--color-border)" stroke-width="1" fill="rgba(200,169,110,0.04)" />
+                <text x="80" y="332" text-anchor="middle" fill="var(--color-text)" font-size="10" font-family="var(--font-body)">Underwriting</text>
+                <text x="80" y="347" text-anchor="middle" fill="var(--color-text-muted)" font-size="8" font-family="var(--font-mono)">Screen · Score · Offer</text>
+
+                <rect x="160" y="310" width="120" height="50" rx="8" stroke="var(--color-border)" stroke-width="1" fill="rgba(200,169,110,0.04)" />
+                <text x="220" y="332" text-anchor="middle" fill="var(--color-text)" font-size="10" font-family="var(--font-body)">Asset Mgmt</text>
+                <text x="220" y="347" text-anchor="middle" fill="var(--color-text-muted)" font-size="8" font-family="var(--font-mono)">Lease · Inspect · Report</text>
+
+                <rect x="300" y="310" width="120" height="50" rx="8" stroke="var(--color-border)" stroke-width="1" fill="rgba(200,169,110,0.04)" />
+                <text x="360" y="332" text-anchor="middle" fill="var(--color-text)" font-size="10" font-family="var(--font-body)">Analytics</text>
+                <text x="360" y="347" text-anchor="middle" fill="var(--color-text-muted)" font-size="8" font-family="var(--font-mono)">Dash · Alerts · Insights</text>
+
+                <!-- DAG label -->
+                <text x="435" y="340" text-anchor="end" fill="var(--color-accent)" font-size="9" font-family="var(--font-mono)" opacity="0.6">DAG</text>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
@@ -252,24 +295,37 @@ mcp = FastMCP(<span class="code-str">"conatus-acquisitions"</span>)
     </div>
   </section>
 
-  <!-- Existing Clients & Investors -->
+  <!-- The Platform -->
   <section class="section legacy-section">
     <div class="container">
       <div class="section-header" data-animate>
-        <p class="section-header__label">Investment & Advisory</p>
-        <h2>Conatus Ventures</h2>
-        <p class="section-header__desc">In addition to technology consulting, Conatus Real Estate Inc. maintains active investment and advisory relationships.</p>
+        <p class="section-header__label">The Platform</p>
+        <h2>What We've Built & Where We Operate</h2>
       </div>
-      <div class="legacy-grid" data-animate>
-        <div class="card legacy-card">
+      <div class="platform-grid" data-animate>
+        <div class="card platform-card">
+          <span class="platform-tag">Acquisitions</span>
+          <h3>Fortune Acquisitions</h3>
+          <p>Proprietary acquisitions platform that systematically pulls live lead feeds, enriches every data record, provides an underwriting environment, and allows underwriters to submit offers automatically.</p>
+          <a href="/case-studies" class="btn btn--outline btn--sm">Learn More &rarr;</a>
+        </div>
+        <div class="card platform-card">
+          <span class="platform-tag">Asset Management</span>
+          <h3>Integrated AM Platform</h3>
+          <p>AI-driven asset management platform purpose-built for leasing to Housing Choice Voucher tenants — inspections, compliance, housing authority coordination, and portfolio reporting.</p>
+          <a href="/case-studies" class="btn btn--outline btn--sm">Learn More &rarr;</a>
+        </div>
+        <div class="card platform-card">
+          <span class="platform-tag">Consulting</span>
+          <h3>Ops & Tech Consulting</h3>
+          <p>Operational analytics, technical strategy, and AI integration consulting for regulated industries. We help operators build the infrastructure their business actually needs.</p>
+          <a href="/#services" class="btn btn--outline btn--sm">Our Services &rarr;</a>
+        </div>
+        <div class="card platform-card">
+          <span class="platform-tag">Fund Sponsor</span>
           <h3>Homestead Affordable Fund I</h3>
           <p>Conatus Real Estate Inc. is the sponsor of Homestead Affordable Fund I, a single-family residential fund focused on Housing Choice Voucher tenants.</p>
           <a href="https://homesteadaffordable.com" class="btn btn--outline btn--sm" target="_blank" rel="noopener">Homestead Affordable &rarr;</a>
-        </div>
-        <div class="card legacy-card">
-          <h3>1031 Exchange Consulting</h3>
-          <p>We provide strategic consulting for investors executing 1031 exchanges within the single-family residential space, including identification, analysis, and acquisition support.</p>
-          <a href="/contact" class="btn btn--outline btn--sm">Inquire &rarr;</a>
         </div>
       </div>
     </div>
@@ -389,7 +445,7 @@ mcp = FastMCP(<span class="code-str">"conatus-acquisitions"</span>)
     flex-wrap: wrap;
   }
 
-  /* Hero brand visual */
+  /* Hero hexagon visual */
   .hero__visual {
     display: flex;
     flex-direction: column;
@@ -398,60 +454,45 @@ mcp = FastMCP(<span class="code-str">"conatus-acquisitions"</span>)
     gap: var(--space-lg);
   }
 
-  .hero__brand-display {
+  .hero__hexagon-display {
     position: relative;
-    width: 260px;
-    height: 260px;
+    width: 280px;
+    height: 280px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .hero__brand-ring {
+  .hero__hexagon-outer {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hex-mid {
+    animation: hex-pulse 4s ease-in-out infinite;
+  }
+
+  .hex-inner {
+    animation: hex-pulse 4s ease-in-out infinite 0.5s;
+  }
+
+  .hex-core {
+    animation: hex-pulse 4s ease-in-out infinite 1s;
+  }
+
+  @keyframes hex-pulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+
+  .hero__hex-glow {
     position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: 1px solid rgba(200, 169, 110, 0.25);
-    animation: ring-pulse 4s ease-in-out infinite;
-  }
-
-  .hero__brand-ring::before {
-    content: '';
-    position: absolute;
-    inset: -20px;
-    border-radius: 50%;
-    border: 1px solid rgba(200, 169, 110, 0.1);
-  }
-
-  .hero__brand-ring::after {
-    content: '';
-    position: absolute;
-    inset: 16px;
-    border-radius: 50%;
-    border: 1px solid rgba(200, 169, 110, 0.15);
-  }
-
-  @keyframes ring-pulse {
-    0%, 100% { opacity: 0.6; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.03); }
-  }
-
-  .hero__brand-glow {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(200, 169, 110, 0.15) 0%, transparent 70%);
-    filter: blur(30px);
-  }
-
-  .hero__brand-mark {
-    position: relative;
     width: 180px;
     height: 180px;
     border-radius: 50%;
-    object-fit: contain;
-    filter: drop-shadow(0 0 40px rgba(200, 169, 110, 0.2));
+    background: radial-gradient(circle, rgba(200, 169, 110, 0.12) 0%, transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
   }
 
   .hero__brand-name {
@@ -472,19 +513,9 @@ mcp = FastMCP(<span class="code-str">"conatus-acquisitions"</span>)
       order: -1;
     }
 
-    .hero__brand-display {
-      width: 180px;
-      height: 180px;
-    }
-
-    .hero__brand-mark {
-      width: 120px;
-      height: 120px;
-    }
-
-    .hero__brand-glow {
-      width: 140px;
-      height: 140px;
+    .hero__hexagon-display {
+      width: 200px;
+      height: 200px;
     }
 
     .hero {
@@ -572,6 +603,15 @@ mcp = FastMCP(<span class="code-str">"conatus-acquisitions"</span>)
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
+  .grid--3 > [data-animate] {
+    display: flex;
+  }
+
+  .grid--3 > [data-animate] > :global(.blog-card),
+  .grid--3 > [data-animate] > :global(.card) {
+    flex: 1;
+  }
+
   .section-footer {
     margin-top: var(--space-xl);
     text-align: center;
@@ -625,15 +665,15 @@ mcp = FastMCP(<span class="code-str">"conatus-acquisitions"</span>)
     color: var(--color-text);
   }
 
-  /* Code window */
-  .code-window {
+  /* Workflow diagram */
+  .diagram-window {
     background: #0d0d0d;
     border: 1px solid var(--color-border);
     border-radius: 12px;
     overflow: hidden;
   }
 
-  .code-window__header {
+  .diagram-window__header {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -642,44 +682,28 @@ mcp = FastMCP(<span class="code-str">"conatus-acquisitions"</span>)
     border-bottom: 1px solid var(--color-border);
   }
 
-  .code-window__dot {
+  .diagram-window__dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background: var(--color-border);
   }
 
-  .code-window__title {
+  .diagram-window__title {
     margin-left: 8px;
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--color-text-muted);
   }
 
-  .code-window__body {
+  .diagram-window__body {
     padding: 20px;
-    margin: 0;
-    background: none;
-    overflow-x: auto;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    line-height: 1.7;
-    color: var(--color-text-muted);
   }
 
-  .code-window__body code {
-    background: none;
-    padding: 0;
-    font-size: inherit;
+  .workflow-svg {
+    width: 100%;
+    height: auto;
   }
-
-  .code-kw { color: #c8a96e; }
-  .code-fn { color: #7ec8a4; }
-  .code-str { color: #8bbf6e; }
-  .code-mod { color: #d4ba82; }
-  .code-type { color: #7ea8c8; }
-  .code-num { color: #d4a06e; }
-  .code-decorator { color: #c8a96e; opacity: 0.8; }
 
   @media (max-width: 900px) {
     .claude-grid {
@@ -804,30 +828,53 @@ mcp = FastMCP(<span class="code-str">"conatus-acquisitions"</span>)
   }
 
   /* ========================
-     Legacy / Investment Section
+     The Platform Section
      ======================== */
   .legacy-section {
     border-top: 1px solid var(--color-border);
   }
 
-  .legacy-grid {
+  .platform-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-lg);
   }
 
-  .legacy-card h3 {
+  .platform-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .platform-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-sm);
+    font-weight: 500;
+    font-family: var(--font-mono);
+  }
+
+  .platform-card h3 {
     margin-bottom: var(--space-sm);
   }
 
-  .legacy-card p {
+  .platform-card p {
     font-size: 0.9rem;
     margin-bottom: var(--space-md);
+    flex: 1;
   }
 
   .btn--sm {
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
+  }
+
+  @media (max-width: 768px) {
+    .platform-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   /* ========================
