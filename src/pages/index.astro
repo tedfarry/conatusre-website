@@ -38,11 +38,13 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
         </div>
       </div>
       <div class="hero__visual" data-animate>
-        <div class="hero__hex-grid" aria-hidden="true">
-          <div class="hex hex--1"></div>
-          <div class="hex hex--2"></div>
-          <div class="hex hex--3"></div>
-          <div class="hex hex--4"></div>
+        <div class="hero__hexgrid" aria-hidden="true">
+          <div class="hex hex--gold"></div>
+          <div class="hex hex--amber"></div>
+          <div class="hex hex--bronze"></div>
+          <div class="hex hex--dark"></div>
+          <div class="hex hex--muted"></div>
+          <div class="hex hex--accent"></div>
         </div>
       </div>
     </div>
@@ -409,54 +411,86 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     flex-wrap: wrap;
   }
 
-  /* Hero abstract visual */
+  /* Hero hexagon visual */
   .hero__visual {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .hero__hex-grid {
+  .hero__hexgrid {
     position: relative;
-    width: 320px;
-    height: 320px;
+    width: 280px;
+    height: 300px;
   }
 
   .hex {
     position: absolute;
-    width: 100px;
-    height: 115px;
+    width: 80px;
+    height: 92px;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition: transform 0.4s ease, opacity 0.4s ease;
   }
 
-  .hex--1 {
-    top: 10px;
-    left: 110px;
-    background: var(--color-accent);
-    opacity: 0.9;
+  .hex:hover {
+    transform: scale(1.08);
   }
 
-  .hex--2 {
-    top: 95px;
-    left: 30px;
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    opacity: 0.7;
+  .hex--gold {
+    background: linear-gradient(135deg, #c8a96e 0%, #d4ba82 100%);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: hex-float-center 6s ease-in-out infinite;
   }
 
-  .hex--3 {
-    top: 95px;
-    left: 190px;
-    background: #5b9e8f;
-    opacity: 0.6;
+  .hex--amber {
+    background: linear-gradient(135deg, #a08550 0%, #c8a96e 100%);
+    top: 70px;
+    left: calc(50% - 72px);
+    animation: hex-float 6s ease-in-out 1s infinite;
   }
 
-  .hex--4 {
-    top: 180px;
-    left: 110px;
-    background: var(--color-bg-elevated);
-    opacity: 0.5;
+  .hex--bronze {
+    background: linear-gradient(135deg, #5b9e8f 0%, #7ec8a4 100%);
+    top: 70px;
+    left: calc(50% + 72px);
+    transform: translateX(-100%);
+    animation: hex-float 6s ease-in-out 2s infinite;
+  }
+
+  .hex--dark {
+    background: linear-gradient(135deg, #2a2520 0%, #3d3530 100%);
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: hex-float-center 6s ease-in-out 0.5s infinite;
+  }
+
+  .hex--muted {
+    background: linear-gradient(135deg, #3d3530 0%, #504840 100%);
+    top: 140px;
+    left: calc(50% - 72px);
+    animation: hex-float 6s ease-in-out 1.5s infinite;
+  }
+
+  .hex--accent {
+    background: linear-gradient(135deg, rgba(200, 169, 110, 0.2) 0%, rgba(200, 169, 110, 0.07) 100%);
+    border: 1px solid rgba(200, 169, 110, 0.2);
+    top: 210px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: hex-float-center 6s ease-in-out 2.5s infinite;
+  }
+
+  @keyframes hex-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  @keyframes hex-float-center {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-6px); }
   }
 
   @media (max-width: 768px) {
@@ -465,11 +499,28 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     }
 
     .hero__visual {
-      display: none;
+      order: -1;
     }
 
+    .hero__hexgrid {
+      width: 200px;
+      height: 220px;
+    }
+
+    .hex {
+      width: 56px;
+      height: 65px;
+    }
+
+    .hex--amber { top: 50px; left: calc(50% - 50px); }
+    .hex--bronze { top: 50px; left: calc(50% + 50px); transform: translateX(-100%); }
+    .hex--dark { top: 100px; }
+    .hex--muted { top: 100px; left: calc(50% - 50px); }
+    .hex--accent { top: 150px; }
+
     .hero {
-      min-height: 70vh;
+      min-height: auto;
+      padding: var(--space-xl) 0 var(--space-2xl);
     }
   }
 
