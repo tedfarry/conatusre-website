@@ -131,6 +131,25 @@ a:hover {
   margin-bottom: var(--space-xs);
 }
 
+.prose .video-embed {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin-bottom: var(--space-lg);
+  border-radius: 8px;
+}
+
+.prose .video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 8px;
+}
+
 .prose blockquote {
   border-left: 3px solid var(--color-accent);
   padding-left: var(--space-md);
