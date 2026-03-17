@@ -96,6 +96,24 @@ All case studies MUST use anonymized data:
 - Section headers use `.section-header` with uppercase label + h2
 - Content uses `.prose` wrapper for consistent typography
 
+## Deployment
+
+### Cloudflare Pages
+- **Workflow**: `.github/workflows/deploy.yml`
+- **Build**: `npm run build` → `dist/`
+- **Triggers**: Push to `main` (production), PRs get preview deployments
+- **Secrets required**: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
+- **Domain**: conatusre.com (custom domain via Cloudflare Pages)
+- **Analytics**: Cloudflare Web Analytics (snippet in `src/layouts/Base.astro`)
+- **Redirects**: `public/_redirects` (Cloudflare Pages format)
+
+### Claude Code Action (Orchestrator)
+- **Workflow**: `.github/workflows/claude-pr.yml`
+- **Triggers**: Issues labeled `claude`, issue comments on `claude`-labeled issues, PR review comments
+- **How it works**: When a GitHub issue is created with the `claude` label, Claude Code Action automatically picks it up, implements the request, and opens a PR
+- **Secrets required**: `ANTHROPIC_API_KEY`
+- **Usage**: Create a GitHub issue with the `claude` label and describe the content change or feature needed
+
 ## Build & Dev
 ```bash
 npm run dev      # Start dev server

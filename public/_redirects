@@ -12,3 +12,6 @@
 # Leadership page consolidated into about
 /leadership /about 301
 /leadership/ /about 301
+
+# www to apex redirect
+https://www.conatusre.com/* https://conatusre.com/:splat 301
