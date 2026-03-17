@@ -12,4 +12,9 @@ export default defineConfig({
     mdx(),
     react(),
   ],
+  vite: {
+    server: {
+      allowedHosts: ['gustavo'],
+    },
+  },
 });
