@@ -54,6 +54,14 @@ const formattedUpdated = updatedDate?.toLocaleDateString('en-US', {
         <slot />
       </div>
 
+      <div class="blog-disclaimer">
+        <p>
+          The information in this article is for educational purposes only and does not
+          constitute tax, legal, financial, or investment advice. Consult a qualified
+          professional before making investment decisions.
+        </p>
+      </div>
+
       <footer class="blog-post__footer">
         <a href="/blog" class="btn btn--outline">&larr; Back to Blog</a>
       </footer>
@@ -108,6 +116,22 @@ const formattedUpdated = updatedDate?.toLocaleDateString('en-US', {
     width: 100%;
     height: auto;
     border-radius: 12px;
+  }
+
+  .blog-disclaimer {
+    margin-top: var(--space-xl);
+    padding: var(--space-md);
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .blog-disclaimer p {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.6;
+    font-style: italic;
   }
 
   .blog-post__footer {
