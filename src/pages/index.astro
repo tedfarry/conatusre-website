@@ -14,7 +14,7 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
 ---
 
 <Base
-  title="Conatus Real Estate Inc. — AI-Powered Operations Platforms"
+  title="Conatus Real Estate — AI-Powered Operations Platforms"
   description="Custom AI-powered operations platforms for regulated industries — not SaaS, not off-the-shelf. 4,000+ SFR transactions, $1B+ in acquisitions capital. Deep operational expertise. Built with Claude."
 >
   <!-- Hero -->
@@ -38,13 +38,113 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
         </div>
       </div>
       <div class="hero__visual" data-animate>
-        <div class="hero__hexgrid" aria-hidden="true">
-          <div class="hex hex--gold"></div>
-          <div class="hex hex--amber"></div>
-          <div class="hex hex--bronze"></div>
-          <div class="hex hex--dark"></div>
-          <div class="hex hex--muted"></div>
-          <div class="hex hex--accent"></div>
+        <div class="visual-stage">
+          <!-- Layer 1: Pipeline animation (behind) -->
+          <div class="pipeline-layer">
+            <div class="pipeline" aria-hidden="true">
+              <!-- Harvesting field: 3-row honeycomb -->
+              <div class="pipeline__layer pipeline__field">
+                <div class="field-row field-row--1">
+                  <div class="raw-hex rh--1"></div>
+                  <div class="raw-hex rh--2"></div>
+                  <div class="raw-hex rh--3"></div>
+                  <div class="raw-hex rh--4"></div>
+                  <div class="raw-hex rh--5"></div>
+                </div>
+                <div class="field-row field-row--2">
+                  <div class="raw-hex rh--6"></div>
+                  <div class="raw-hex rh--7"></div>
+                  <div class="raw-hex rh--8"></div>
+                  <div class="raw-hex rh--9"></div>
+                </div>
+                <div class="field-row field-row--3">
+                  <div class="raw-hex rh--10"></div>
+                  <div class="raw-hex rh--11"></div>
+                  <div class="raw-hex rh--12"></div>
+                </div>
+              </div>
+
+              <!-- Flow: convergence -->
+              <svg class="pipeline__flow flow--top" viewBox="0 0 440 55" preserveAspectRatio="none">
+                <path d="M60,2 C60,28 220,32 220,52" stroke="rgba(200,169,110,0.18)" stroke-width="1" fill="none" class="flow-line fl--1"/>
+                <path d="M130,2 C130,24 220,28 220,52" stroke="rgba(200,169,110,0.24)" stroke-width="1" fill="none" class="flow-line fl--2"/>
+                <path d="M220,2 L220,52" stroke="rgba(200,169,110,0.35)" stroke-width="1.5" fill="none" class="flow-line fl--3"/>
+                <path d="M310,2 C310,24 220,28 220,52" stroke="rgba(200,169,110,0.24)" stroke-width="1" fill="none" class="flow-line fl--4"/>
+                <path d="M380,2 C380,28 220,32 220,52" stroke="rgba(200,169,110,0.18)" stroke-width="1" fill="none" class="flow-line fl--5"/>
+              </svg>
+
+              <!-- MCP core -->
+              <div class="pipeline__layer pipeline__mcp">
+                <div class="mcp-core">
+                  <div class="mcp-ring mcp-ring--outer"></div>
+                  <div class="mcp-ring mcp-ring--inner"></div>
+                  <div class="mcp-center"></div>
+                </div>
+              </div>
+
+              <!-- Flow: distribution -->
+              <svg class="pipeline__flow flow--bottom" viewBox="0 0 440 55" preserveAspectRatio="none">
+                <path d="M220,3 C220,28 52,32 52,53" stroke="rgba(200,169,110,0.18)" stroke-width="1" fill="none" class="flow-line fl--6"/>
+                <path d="M220,3 C220,24 140,28 140,53" stroke="rgba(200,169,110,0.24)" stroke-width="1" fill="none" class="flow-line fl--7"/>
+                <path d="M220,3 L220,53" stroke="rgba(200,169,110,0.35)" stroke-width="1.5" fill="none" class="flow-line fl--8"/>
+                <path d="M220,3 C220,24 300,28 300,53" stroke="rgba(200,169,110,0.24)" stroke-width="1" fill="none" class="flow-line fl--9"/>
+                <path d="M220,3 C220,28 388,32 388,53" stroke="rgba(200,169,110,0.18)" stroke-width="1" fill="none" class="flow-line fl--10"/>
+              </svg>
+
+              <!-- DAG agents -->
+              <div class="pipeline__layer pipeline__dag">
+                <svg class="dag-connections" viewBox="0 0 440 60" preserveAspectRatio="none">
+                  <line x1="72" y1="30" x2="118" y2="30" stroke="rgba(200,169,110,0.12)" stroke-width="1"/>
+                  <line x1="162" y1="30" x2="208" y2="30" stroke="rgba(200,169,110,0.12)" stroke-width="1"/>
+                  <line x1="252" y1="30" x2="298" y2="30" stroke="rgba(200,169,110,0.12)" stroke-width="1"/>
+                  <line x1="342" y1="30" x2="388" y2="30" stroke="rgba(200,169,110,0.12)" stroke-width="1"/>
+                  <circle r="3" fill="var(--color-accent)" opacity="0">
+                    <animate attributeName="cx" dur="10s" repeatCount="indefinite"
+                      values="72;72;118;118;162;162;208;208;252;252;298;298;342;342;388;388;388"
+                      keyTimes="0;0.06;0.12;0.18;0.24;0.30;0.36;0.42;0.48;0.54;0.60;0.66;0.72;0.78;0.84;0.94;1" />
+                    <animate attributeName="cy" values="30;30;30;30;30;30;30;30;30;30;30;30;30;30;30;30;30" dur="10s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" dur="10s" repeatCount="indefinite"
+                      values="0;0.8;0.8;0;0;0.8;0.8;0;0;0.8;0.8;0;0;0.8;0.8;0;0"
+                      keyTimes="0;0.06;0.11;0.13;0.18;0.24;0.29;0.31;0.36;0.42;0.47;0.49;0.54;0.60;0.65;0.67;1" />
+                  </circle>
+                  <circle r="2.5" fill="var(--color-accent-hover)" opacity="0">
+                    <animate attributeName="cx" dur="10s" repeatCount="indefinite" begin="3.3s"
+                      values="72;72;118;118;162;162;208;208;252;252;298;298;342;342;388;388;388"
+                      keyTimes="0;0.06;0.12;0.18;0.24;0.30;0.36;0.42;0.48;0.54;0.60;0.66;0.72;0.78;0.84;0.94;1" />
+                    <animate attributeName="cy" values="30;30;30;30;30;30;30;30;30;30;30;30;30;30;30;30;30" dur="10s" repeatCount="indefinite" begin="3.3s" />
+                    <animate attributeName="opacity" dur="10s" repeatCount="indefinite" begin="3.3s"
+                      values="0;0.6;0.6;0;0;0.6;0.6;0;0;0.6;0.6;0;0;0.6;0.6;0;0"
+                      keyTimes="0;0.06;0.11;0.13;0.18;0.24;0.29;0.31;0.36;0.42;0.47;0.49;0.54;0.60;0.65;0.67;1" />
+                  </circle>
+                </svg>
+                <div class="dag-agent da--1">
+                  <svg class="agent-icon" viewBox="0 0 24 24" width="22" height="22"><path d="M10,8 L10,16 M10,8 L14,8 M10,12 L13,12" stroke="var(--color-accent)" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+                </div>
+                <div class="dag-agent da--2">
+                  <svg class="agent-icon" viewBox="0 0 24 24" width="22" height="22"><path d="M8,16 L12,8 L16,16" stroke="var(--color-accent)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="dag-agent da--3">
+                  <svg class="agent-icon" viewBox="0 0 24 24" width="22" height="22"><rect x="7" y="7" width="10" height="10" rx="2" stroke="var(--color-accent)" stroke-width="1.5" fill="none"/></svg>
+                </div>
+                <div class="dag-agent da--4">
+                  <svg class="agent-icon" viewBox="0 0 24 24" width="22" height="22"><path d="M8,12 L11,15 L16,9" stroke="var(--color-accent)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="dag-agent da--5">
+                  <svg class="agent-icon" viewBox="0 0 24 24" width="22" height="22"><path d="M8,12 L16,12 M13,9 L16,12 L13,15" stroke="var(--color-accent)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Layer 2: Logo overlay (on top, breathes in/out) -->
+          <div class="logo-overlay">
+            <div class="logo-overlay__bg"></div>
+            <img
+              src="/assets/brand/ConatusREIcon500-300x300.png"
+              alt="Conatus Real Estate"
+              class="logo-overlay__img"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -87,60 +187,41 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
             </div>
             <div class="diagram-window__body">
               <svg class="workflow-svg" viewBox="0 0 440 380" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Data Sources row -->
                 <rect x="20" y="20" width="120" height="50" rx="8" stroke="var(--color-accent)" stroke-width="1" fill="rgba(200,169,110,0.06)" />
                 <text x="80" y="40" text-anchor="middle" fill="var(--color-text)" font-size="11" font-family="var(--font-body)">Data Sources</text>
                 <text x="80" y="55" text-anchor="middle" fill="var(--color-text-muted)" font-size="9" font-family="var(--font-mono)">APIs · DBs · Feeds</text>
-
                 <rect x="160" y="20" width="120" height="50" rx="8" stroke="var(--color-border)" stroke-width="1" fill="rgba(200,169,110,0.03)" />
                 <text x="220" y="40" text-anchor="middle" fill="var(--color-text)" font-size="11" font-family="var(--font-body)">Documents</text>
                 <text x="220" y="55" text-anchor="middle" fill="var(--color-text-muted)" font-size="9" font-family="var(--font-mono)">PDFs · Contracts</text>
-
                 <rect x="300" y="20" width="120" height="50" rx="8" stroke="var(--color-border)" stroke-width="1" fill="rgba(200,169,110,0.03)" />
                 <text x="360" y="40" text-anchor="middle" fill="var(--color-text)" font-size="11" font-family="var(--font-body)">Live Feeds</text>
                 <text x="360" y="55" text-anchor="middle" fill="var(--color-text-muted)" font-size="9" font-family="var(--font-mono)">MLS · Markets</text>
-
-                <!-- Arrows down to RAG -->
                 <line x1="80" y1="70" x2="220" y2="110" stroke="rgba(200,169,110,0.3)" stroke-width="1" />
                 <line x1="220" y1="70" x2="220" y2="110" stroke="rgba(200,169,110,0.3)" stroke-width="1" />
                 <line x1="360" y1="70" x2="220" y2="110" stroke="rgba(200,169,110,0.3)" stroke-width="1" />
-
-                <!-- RAG Layer -->
                 <rect x="120" y="110" width="200" height="55" rx="8" stroke="var(--color-accent)" stroke-width="1.5" fill="rgba(200,169,110,0.08)" />
                 <text x="220" y="132" text-anchor="middle" fill="var(--color-accent)" font-size="12" font-weight="600" font-family="var(--font-body)">RAG Pipeline</text>
                 <text x="220" y="150" text-anchor="middle" fill="var(--color-text-muted)" font-size="9" font-family="var(--font-mono)">Embed · Index · Retrieve</text>
-
-                <!-- Arrow down to Claude -->
                 <line x1="220" y1="165" x2="220" y2="195" stroke="rgba(200,169,110,0.4)" stroke-width="1.5" />
                 <polygon points="215,193 220,200 225,193" fill="var(--color-accent)" opacity="0.5" />
-
-                <!-- Claude / MCP Core -->
                 <rect x="80" y="200" width="280" height="65" rx="10" stroke="var(--color-accent)" stroke-width="2" fill="rgba(200,169,110,0.1)" />
                 <text x="220" y="224" text-anchor="middle" fill="var(--color-accent)" font-size="13" font-weight="700" font-family="var(--font-body)">Claude + MCP Tools</text>
                 <text x="220" y="245" text-anchor="middle" fill="var(--color-text-muted)" font-size="9" font-family="var(--font-mono)">Analyze · Decide · Execute · Report</text>
-
-                <!-- DAG branches -->
                 <line x1="140" y1="265" x2="80" y2="305" stroke="rgba(200,169,110,0.3)" stroke-width="1" />
                 <polygon points="76,301 80,310 85,303" fill="var(--color-accent)" opacity="0.4" />
                 <line x1="220" y1="265" x2="220" y2="305" stroke="rgba(200,169,110,0.3)" stroke-width="1" />
                 <polygon points="215,303 220,310 225,303" fill="var(--color-accent)" opacity="0.4" />
                 <line x1="300" y1="265" x2="360" y2="305" stroke="rgba(200,169,110,0.3)" stroke-width="1" />
                 <polygon points="355,303 360,310 364,301" fill="var(--color-accent)" opacity="0.4" />
-
-                <!-- Output DAG nodes -->
                 <rect x="20" y="310" width="120" height="50" rx="8" stroke="var(--color-border)" stroke-width="1" fill="rgba(200,169,110,0.04)" />
                 <text x="80" y="332" text-anchor="middle" fill="var(--color-text)" font-size="10" font-family="var(--font-body)">Underwriting</text>
                 <text x="80" y="347" text-anchor="middle" fill="var(--color-text-muted)" font-size="8" font-family="var(--font-mono)">Screen · Score · Offer</text>
-
                 <rect x="160" y="310" width="120" height="50" rx="8" stroke="var(--color-border)" stroke-width="1" fill="rgba(200,169,110,0.04)" />
                 <text x="220" y="332" text-anchor="middle" fill="var(--color-text)" font-size="10" font-family="var(--font-body)">Asset Mgmt</text>
                 <text x="220" y="347" text-anchor="middle" fill="var(--color-text-muted)" font-size="8" font-family="var(--font-mono)">Lease · Inspect · Report</text>
-
                 <rect x="300" y="310" width="120" height="50" rx="8" stroke="var(--color-border)" stroke-width="1" fill="rgba(200,169,110,0.04)" />
                 <text x="360" y="332" text-anchor="middle" fill="var(--color-text)" font-size="10" font-family="var(--font-body)">Analytics</text>
                 <text x="360" y="347" text-anchor="middle" fill="var(--color-text-muted)" font-size="8" font-family="var(--font-mono)">Dash · Alerts · Insights</text>
-
-                <!-- DAG label -->
                 <text x="435" y="340" text-anchor="end" fill="var(--color-accent)" font-size="9" font-family="var(--font-mono)" opacity="0.6">DAG</text>
               </svg>
             </div>
@@ -304,7 +385,7 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
         <div class="card platform-card">
           <span class="platform-tag">Fund Sponsor</span>
           <h3>Homestead Affordable Fund I</h3>
-          <p>Conatus Real Estate Inc. is the sponsor of Homestead Affordable Fund I, a mission driven single-family residential fund focused on providing affordable housing in high opportunity areas for Housing Choice Voucher tenants.</p>
+          <p>Conatus Real Estate Inc. is the sponsor of Homestead Affordable Fund I, a single-family residential fund focused on Housing Choice Voucher tenants.</p>
           <a href="https://homesteadaffordable.com" class="btn btn--outline btn--sm" target="_blank" rel="noopener">Homestead Affordable &rarr;</a>
         </div>
       </div>
@@ -379,9 +460,7 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     align-items: center;
   }
 
-  .hero__content {
-    max-width: 640px;
-  }
+  .hero__content { max-width: 640px; }
 
   .hero__label {
     font-size: 0.85rem;
@@ -392,10 +471,7 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     font-weight: 500;
   }
 
-  .hero__title {
-    margin-bottom: var(--space-lg);
-    line-height: 1.1;
-  }
+  .hero__title { margin-bottom: var(--space-lg); line-height: 1.1; }
 
   .hero__subtitle {
     font-size: 1.15rem;
@@ -405,131 +481,388 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     line-height: 1.7;
   }
 
-  .hero__actions {
+  .hero__actions { display: flex; gap: var(--space-md); flex-wrap: wrap; }
+
+  /* ========================
+     Visual stage: layered logo + pipeline
+     ======================== */
+  .hero__visual {
     display: flex;
-    gap: var(--space-md);
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
   }
 
-  /* Hero hexagon visual */
-  .hero__visual {
+  .visual-stage {
+    position: relative;
+    width: 460px;
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Pipeline layer (behind) */
+  .pipeline-layer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  /* Logo overlay (on top) — breathes in/out */
+  .logo-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: logo-reveal 4s ease-in-out 3s forwards;
+    pointer-events: none;
+  }
+
+  .logo-overlay__bg {
+    position: absolute;
+    inset: -40px;
+    background: var(--color-bg);
+    animation: bg-reveal 4s ease-in-out 2.8s forwards;
+  }
+
+  .logo-overlay__img {
+    position: relative;
+    z-index: 1;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter:
+      drop-shadow(0 0 50px rgba(200, 169, 110, 0.15))
+      drop-shadow(0 0 100px rgba(200, 169, 110, 0.08));
+    animation: img-reveal 4s ease-in-out 3s forwards;
+  }
+
+  /* Logo fully visible → fades to reveal pipeline → fades back */
+  @keyframes logo-reveal {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+    10% { opacity: 1; }
+    40% { opacity: 0; }
+    60% { opacity: 0; }
+    90% { opacity: 1; }
+  }
+
+  /* Background follows same timing but with slight offset for depth */
+  @keyframes bg-reveal {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+    8% { opacity: 1; }
+    38% { opacity: 0; }
+    62% { opacity: 0; }
+    92% { opacity: 1; }
+  }
+
+  /* Subtle scale on logo for polish */
+  @keyframes img-reveal {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.94); opacity: 0; }
+  }
+    10% { transform: scale(1); }
+    40% { transform: scale(0.96); }
+    60% { transform: scale(0.96); }
+    90% { transform: scale(1); }
+  }
+
+  /* ========================
+     Pipeline (behind the logo)
+     ======================== */
+  .pipeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 440px;
+    gap: 0;
+  }
+
+  .pipeline__layer {
+    position: relative;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .hero__hexgrid {
-    position: relative;
-    width: 280px;
-    height: 300px;
+  /* --- Harvesting field --- */
+  .pipeline__field {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 6px 0 8px;
   }
 
-  .hex {
-    position: absolute;
-    width: 80px;
-    height: 92px;
+  .field-row { display: flex; gap: 6px; justify-content: center; }
+  .field-row--2 { margin-top: -12px; }
+  .field-row--3 { margin-top: -12px; }
+
+  .raw-hex {
+    width: 44px;
+    height: 50px;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    transition: transform 0.4s ease, opacity 0.4s ease;
+    transition: transform 0.3s ease;
   }
 
-  .hex:hover {
-    transform: scale(1.08);
+  .rh--1  { background: linear-gradient(160deg, var(--color-accent) 0%, #a08550 100%); }
+  .rh--2  { background: linear-gradient(160deg, var(--color-accent-hover) 0%, var(--color-accent) 100%); }
+  .rh--3  { background: linear-gradient(160deg, #a08550 0%, #7a6540 100%); }
+  .rh--4  { background: linear-gradient(160deg, var(--color-accent) 0%, var(--color-accent-hover) 100%); }
+  .rh--5  { background: linear-gradient(160deg, #7a6540 0%, var(--color-accent) 100%); }
+  .rh--6  { background: linear-gradient(160deg, var(--color-accent-hover) 0%, #a08550 100%); }
+  .rh--7  { background: linear-gradient(160deg, var(--color-accent) 0%, #7a6540 100%); }
+  .rh--8  { background: linear-gradient(160deg, #a08550 0%, var(--color-accent-hover) 100%); }
+  .rh--9  { background: linear-gradient(160deg, #7a6540 0%, var(--color-accent) 100%); }
+  .rh--10 { background: linear-gradient(160deg, var(--color-accent) 0%, #a08550 100%); }
+  .rh--11 { background: linear-gradient(160deg, var(--color-accent-hover) 0%, #7a6540 100%); }
+  .rh--12 { background: linear-gradient(160deg, #a08550 0%, var(--color-accent) 100%); }
+
+  .rh--1  { animation: harvest-pulse 6s ease-in-out 0.0s infinite; --base-o: 0.55; }
+  .rh--2  { animation: harvest-pulse 6s ease-in-out 0.5s infinite; --base-o: 0.65; }
+  .rh--3  { animation: harvest-pulse 6s ease-in-out 1.0s infinite; --base-o: 0.75; }
+  .rh--4  { animation: harvest-pulse 6s ease-in-out 1.5s infinite; --base-o: 0.6; }
+  .rh--5  { animation: harvest-pulse 6s ease-in-out 2.0s infinite; --base-o: 0.5; }
+  .rh--6  { animation: harvest-pulse 6s ease-in-out 0.3s infinite; --base-o: 0.7; }
+  .rh--7  { animation: harvest-pulse 6s ease-in-out 0.8s infinite; --base-o: 0.85; }
+  .rh--8  { animation: harvest-pulse 6s ease-in-out 1.3s infinite; --base-o: 0.75; }
+  .rh--9  { animation: harvest-pulse 6s ease-in-out 1.8s infinite; --base-o: 0.6; }
+  .rh--10 { animation: harvest-pulse 6s ease-in-out 0.6s infinite; --base-o: 0.55; }
+  .rh--11 { animation: harvest-pulse 6s ease-in-out 1.1s infinite; --base-o: 0.7; }
+  .rh--12 { animation: harvest-pulse 6s ease-in-out 1.6s infinite; --base-o: 0.6; }
+
+  @keyframes harvest-pulse {
+    0%, 100% { opacity: var(--base-o); transform: translateY(0) scale(1); }
+    15% { opacity: 1; transform: translateY(-3px) scale(1.06); filter: brightness(1.2); }
+    30% { opacity: var(--base-o); transform: translateY(0) scale(1); filter: brightness(1); }
   }
 
-  .hex--gold {
-    background: linear-gradient(135deg, #c8a96e 0%, #d4ba82 100%);
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: hex-float-center 6s ease-in-out infinite;
+  /* --- Flow lines --- */
+  .pipeline__flow { width: 440px; height: 55px; overflow: visible; }
+
+  .flow-line { stroke-dasharray: 6 6; animation: flow-dash 3s linear infinite; }
+
+  .fl--1 { animation-delay: 0s; }
+  .fl--2 { animation-delay: 0.4s; }
+  .fl--3 { animation-delay: 0.8s; }
+  .fl--4 { animation-delay: 1.2s; }
+  .fl--5 { animation-delay: 1.6s; }
+  .fl--6 { animation-delay: 0.2s; }
+  .fl--7 { animation-delay: 0.6s; }
+  .fl--8 { animation-delay: 1.0s; }
+  .fl--9 { animation-delay: 1.4s; }
+  .fl--10 { animation-delay: 1.8s; }
+
+  @keyframes flow-dash { to { stroke-dashoffset: -24; } }
+  .flow--bottom .flow-line { animation-name: flow-dash-down; }
+  @keyframes flow-dash-down { to { stroke-dashoffset: 24; } }
+
+  /* --- MCP core (no logo here — logo is in overlay) --- */
+  .pipeline__mcp { height: 120px; justify-content: center; }
+
+  .mcp-core {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .hex--amber {
-    background: linear-gradient(135deg, #a08550 0%, #c8a96e 100%);
-    top: 70px;
-    left: calc(50% - 72px);
-    animation: hex-float 6s ease-in-out 1s infinite;
+  .mcp-ring { position: absolute; border-radius: 50%; }
+
+  .mcp-ring--outer {
+    inset: -10px;
+    border: 1.5px solid rgba(200, 169, 110, 0.2);
+    animation: mcp-spin 24s linear infinite;
   }
 
-  .hex--bronze {
-    background: linear-gradient(135deg, #5b9e8f 0%, #7ec8a4 100%);
-    top: 70px;
-    left: calc(50% + 72px);
-    transform: translateX(-100%);
-    animation: hex-float 6s ease-in-out 2s infinite;
+  .mcp-ring--outer::before {
+    content: '';
+    position: absolute;
+    top: -3px; left: 50%; transform: translateX(-50%);
+    width: 6px; height: 6px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    opacity: 0.6;
+    box-shadow: 0 0 10px rgba(200, 169, 110, 0.5);
   }
 
-  .hex--dark {
-    background: linear-gradient(135deg, #2a2520 0%, #3d3530 100%);
-    top: 140px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: hex-float-center 6s ease-in-out 0.5s infinite;
+  .mcp-ring--inner {
+    inset: -3px;
+    border: 1px solid rgba(200, 169, 110, 0.1);
+    animation: mcp-spin 18s linear infinite reverse;
   }
 
-  .hex--muted {
-    background: linear-gradient(135deg, #3d3530 0%, #504840 100%);
-    top: 140px;
-    left: calc(50% - 72px);
-    animation: hex-float 6s ease-in-out 1.5s infinite;
+  .mcp-ring--inner::before {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 50%; transform: translateX(-50%);
+    width: 4px; height: 4px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    opacity: 0.35;
   }
 
-  .hex--accent {
-    background: linear-gradient(135deg, rgba(200, 169, 110, 0.2) 0%, rgba(200, 169, 110, 0.07) 100%);
-    border: 1px solid rgba(200, 169, 110, 0.2);
-    top: 210px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: hex-float-center 6s ease-in-out 2.5s infinite;
+  .mcp-center {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200, 169, 110, 0.15) 0%, rgba(200, 169, 110, 0.04) 70%, transparent 100%);
+    border: 1px solid rgba(200, 169, 110, 0.15);
+    animation: mcp-pulse 4s ease-in-out infinite;
   }
 
-  @keyframes hex-float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
+  @keyframes mcp-spin { to { transform: rotate(360deg); } }
+  @keyframes mcp-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.08); opacity: 1; }
   }
 
-  @keyframes hex-float-center {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(-6px); }
+  /* --- DAG agents --- */
+  .pipeline__dag {
+    height: 72px;
+    gap: 0;
+    position: relative;
+    justify-content: center;
   }
 
+  .dag-connections {
+    position: absolute;
+    width: 440px;
+    height: 60px;
+    top: 6px;
+    pointer-events: none;
+  }
+
+  .dag-agent {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 1px solid rgba(200, 169, 110, 0.15);
+    background: var(--color-bg-elevated);
+    z-index: 1;
+    margin: 0 14px;
+  }
+
+  .agent-icon { opacity: 0.7; }
+
+  /* Sequential agent animations */
+  .da--1 { animation: agent-research 10s ease-in-out infinite; }
+  .da--2 { animation: agent-analyze 10s ease-in-out 2s infinite; }
+  .da--3 { animation: agent-build 10s ease-in-out 4s infinite; }
+  .da--4 { animation: agent-review 10s ease-in-out 6s infinite; }
+  .da--5 { animation: agent-deliver 10s ease-in-out 8s infinite; }
+
+  @keyframes agent-research {
+    0%, 18%, 100% { transform: translateY(0) rotate(0deg); }
+    4% { transform: translateY(-4px) rotate(-6deg); }
+    8% { transform: translateY(-2px) rotate(-3deg); }
+    12% { transform: translateY(-5px) rotate(-8deg); }
+    15% { transform: translateY(0) rotate(0deg); border-color: rgba(200,169,110,0.5); }
+  }
+
+  @keyframes agent-analyze {
+    0%, 18%, 100% { transform: translateY(0); }
+    2% { transform: translateY(-1px) translateX(1px); }
+    4% { transform: translateY(1px) translateX(-1px); }
+    6% { transform: translateY(-2px) translateX(1px); }
+    8% { transform: translateY(1px) translateX(-1px); }
+    10% { transform: translateY(-1px); }
+    14% { transform: scale(1.04); border-color: rgba(200,169,110,0.5); }
+    16% { transform: scale(1); }
+  }
+
+  @keyframes agent-build {
+    0%, 18%, 100% { transform: translateY(0) scale(1); }
+    3% { transform: translateY(-6px) scale(1.02); }
+    6% { transform: translateY(-3px) scale(1.05); }
+    9% { transform: translateY(-7px) scale(1.08); }
+    12% { transform: translateY(-2px) scale(1.04); border-color: rgba(200,169,110,0.5); }
+    15% { transform: translateY(0) scale(1); }
+  }
+
+  @keyframes agent-review {
+    0%, 18%, 100% { transform: translateY(0); }
+    3% { transform: translateY(-5px); }
+    6% { transform: translateY(1px); }
+    9% { transform: translateY(-4px); }
+    12% { transform: translateY(0); border-color: rgba(200,169,110,0.5); }
+  }
+
+  @keyframes agent-deliver {
+    0%, 18%, 100% { transform: translateX(0) scale(1); }
+    4% { transform: translateX(3px) scale(1.02); }
+    8% { transform: translateX(8px) scale(1.04); }
+    10% { transform: translateX(12px) scale(1.06); border-color: rgba(200,169,110,0.6); }
+    13% { transform: translateX(4px) scale(1.02); }
+    16% { transform: translateX(0) scale(1); }
+  }
+
+  .dag-agent::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 12px;
+    border: 1.5px solid var(--color-accent);
+    opacity: 0;
+  }
+
+  .da--1::after { animation: agent-glow 10s ease-out 0.5s infinite; }
+  .da--2::after { animation: agent-glow 10s ease-out 2.5s infinite; }
+  .da--3::after { animation: agent-glow 10s ease-out 4.5s infinite; }
+  .da--4::after { animation: agent-glow 10s ease-out 6.5s infinite; }
+  .da--5::after { animation: agent-glow 10s ease-out 8.5s infinite; }
+
+  @keyframes agent-glow {
+    0%, 15%, 100% { opacity: 0; box-shadow: none; }
+    3% { opacity: 0.5; box-shadow: 0 0 14px rgba(200,169,110,0.35); }
+    8% { opacity: 0.2; box-shadow: 0 0 6px rgba(200,169,110,0.1); }
+  }
+
+  /* ========================
+     Responsive
+     ======================== */
   @media (max-width: 768px) {
-    .hero > .container {
-      grid-template-columns: 1fr;
-    }
+    .hero > .container { grid-template-columns: 1fr; }
 
-    .hero__visual {
-      order: -1;
-    }
+    .hero__visual { order: -1; min-height: 360px; }
 
-    .hero__hexgrid {
-      width: 200px;
-      height: 220px;
-    }
+    .visual-stage { width: 320px; height: 380px; }
+    .pipeline { width: 320px; }
+    .pipeline__flow { width: 320px; }
+    .raw-hex { width: 34px; height: 38px; }
+    .field-row { gap: 4px; }
+    .field-row--2, .field-row--3 { margin-top: -10px; }
+    .pipeline__mcp { height: 90px; }
+    .mcp-core { width: 74px; height: 74px; }
+    .mcp-center { width: 44px; height: 44px; }
+    .pipeline__dag { height: 56px; }
+    .dag-agent { width: 38px; height: 38px; border-radius: 10px; margin: 0 6px; }
+    .dag-connections { width: 320px; }
 
-    .hex {
-      width: 56px;
-      height: 65px;
-    }
+    .logo-overlay__img { width: 200px; height: 200px; }
 
-    .hex--amber { top: 50px; left: calc(50% - 50px); }
-    .hex--bronze { top: 50px; left: calc(50% + 50px); transform: translateX(-100%); }
-    .hex--dark { top: 100px; }
-    .hex--muted { top: 100px; left: calc(50% - 50px); }
-    .hex--accent { top: 150px; }
-
-    .hero {
-      min-height: auto;
-      padding: var(--space-xl) 0 var(--space-2xl);
-    }
+    .hero { min-height: auto; padding: var(--space-xl) 0 var(--space-2xl); }
   }
 
   /* ========================
      Section utilities
      ======================== */
-  .section-header {
-    margin-bottom: var(--space-xl);
-  }
+  .section-header { margin-bottom: var(--space-xl); }
 
   .section-header__label {
     font-size: 0.85rem;
@@ -540,27 +873,14 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     font-weight: 500;
   }
 
-  .section-header__desc {
-    font-size: 1rem;
-    color: var(--color-text-muted);
-    max-width: 540px;
-    margin-top: var(--space-sm);
-  }
-
   .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--space-lg);
   }
 
-  .service-card h3 {
-    margin-bottom: var(--space-sm);
-  }
-
-  .service-card > p {
-    font-size: 0.9rem;
-    margin-bottom: var(--space-md);
-  }
+  .service-card h3 { margin-bottom: var(--space-sm); }
+  .service-card > p { font-size: 0.9rem; margin-bottom: var(--space-md); }
 
   .service-features {
     list-style: none;
@@ -579,11 +899,7 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     color: var(--color-text-muted);
   }
 
-  .feature-arrow {
-    color: var(--color-accent);
-    font-size: 0.7rem;
-    flex-shrink: 0;
-  }
+  .feature-arrow { color: var(--color-accent); font-size: 0.7rem; flex-shrink: 0; }
 
   .service-icon {
     font-size: 0.85rem;
@@ -594,28 +910,13 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     letter-spacing: 0.05em;
   }
 
-  .grid {
-    display: grid;
-    gap: var(--space-lg);
-  }
-
-  .grid--3 {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-
-  .grid--3 > [data-animate] {
-    display: flex;
-  }
-
+  .grid { display: grid; gap: var(--space-lg); }
+  .grid--3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .grid--3 > [data-animate] { display: flex; }
   .grid--3 > [data-animate] > :global(.blog-card),
-  .grid--3 > [data-animate] > :global(.card) {
-    flex: 1;
-  }
+  .grid--3 > [data-animate] > :global(.card) { flex: 1; }
 
-  .section-footer {
-    margin-top: var(--space-xl);
-    text-align: center;
-  }
+  .section-footer { margin-top: var(--space-xl); text-align: center; }
 
   /* ========================
      Built with Claude
@@ -655,17 +956,9 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     line-height: 1.6;
   }
 
-  .claude-capabilities__icon {
-    color: var(--color-accent);
-    flex-shrink: 0;
-    margin-top: 0.2em;
-  }
+  .claude-capabilities__icon { color: var(--color-accent); flex-shrink: 0; margin-top: 0.2em; }
+  .claude-capabilities strong { color: var(--color-text); }
 
-  .claude-capabilities strong {
-    color: var(--color-text);
-  }
-
-  /* Workflow diagram */
   .diagram-window {
     background: #0d0d0d;
     border: 1px solid var(--color-border);
@@ -682,12 +975,7 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     border-bottom: 1px solid var(--color-border);
   }
 
-  .diagram-window__dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--color-border);
-  }
+  .diagram-window__dot { width: 10px; height: 10px; border-radius: 50%; background: var(--color-border); }
 
   .diagram-window__title {
     margin-left: 8px;
@@ -696,19 +984,11 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     color: var(--color-text-muted);
   }
 
-  .diagram-window__body {
-    padding: 20px;
-  }
-
-  .workflow-svg {
-    width: 100%;
-    height: auto;
-  }
+  .diagram-window__body { padding: 20px; }
+  .workflow-svg { width: 100%; height: auto; }
 
   @media (max-width: 900px) {
-    .claude-grid {
-      grid-template-columns: 1fr;
-    }
+    .claude-grid { grid-template-columns: 1fr; }
   }
 
   /* ========================
@@ -727,17 +1007,12 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     text-align: center;
   }
 
-  .proof-card {
-    padding: var(--space-lg);
-    position: relative;
-  }
+  .proof-card { padding: var(--space-lg); position: relative; }
 
   .proof-card + .proof-card::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 20%;
-    bottom: 20%;
+    left: 0; top: 20%; bottom: 20%;
     width: 1px;
     background: var(--color-border);
   }
@@ -760,25 +1035,12 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     margin-bottom: var(--space-xs);
   }
 
-  .proof-card__detail {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-  }
+  .proof-card__detail { display: block; font-size: 0.85rem; color: var(--color-text-muted); }
 
   @media (max-width: 768px) {
-    .proof-grid {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-
+    .proof-grid { grid-template-columns: 1fr; }
     .proof-card + .proof-card::before {
-      left: 20%;
-      right: 20%;
-      top: 0;
-      bottom: auto;
-      width: auto;
-      height: 1px;
+      left: 20%; right: 20%; top: 0; bottom: auto; width: auto; height: 1px;
     }
   }
 
@@ -799,9 +1061,7 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     transition: border-color 0.3s ease;
   }
 
-  .domain-card:hover {
-    border-color: var(--color-accent);
-  }
+  .domain-card:hover { border-color: var(--color-accent); }
 
   .domain-card--primary {
     border-color: var(--color-accent);
@@ -809,30 +1069,15 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     grid-column: 1 / -1;
   }
 
-  @media (min-width: 769px) {
-    .domain-card--primary {
-      grid-column: auto;
-    }
-  }
+  @media (min-width: 769px) { .domain-card--primary { grid-column: auto; } }
 
-  .domain-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: var(--space-sm);
-    color: var(--color-text);
-  }
-
-  .domain-card p {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    margin: 0;
-  }
+  .domain-card h3 { font-size: 1.1rem; margin-bottom: var(--space-sm); color: var(--color-text); }
+  .domain-card p { font-size: 0.9rem; color: var(--color-text-muted); margin: 0; }
 
   /* ========================
-     The Platform Section
+     Platform Section
      ======================== */
-  .platform-section {
-    border-top: 1px solid var(--color-border);
-  }
+  .platform-section { border-top: 1px solid var(--color-border); }
 
   .platform-grid {
     display: grid;
@@ -840,10 +1085,7 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     gap: var(--space-lg);
   }
 
-  .platform-card {
-    display: flex;
-    flex-direction: column;
-  }
+  .platform-card { display: flex; flex-direction: column; }
 
   .platform-tag {
     display: inline-block;
@@ -856,29 +1098,14 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     font-family: var(--font-mono);
   }
 
-  .platform-card h3 {
-    margin-bottom: var(--space-sm);
-  }
+  .platform-card h3 { margin-bottom: var(--space-sm); }
+  .platform-card p { font-size: 0.9rem; margin-bottom: var(--space-md); flex: 1; }
+  .btn--sm { padding: 0.5rem 1rem; font-size: 0.85rem; }
 
-  .platform-card p {
-    font-size: 0.9rem;
-    margin-bottom: var(--space-md);
-    flex: 1;
-  }
-
-  .btn--sm {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-  }
-
-  @media (max-width: 768px) {
-    .platform-grid {
-      grid-template-columns: 1fr;
-    }
-  }
+  @media (max-width: 768px) { .platform-grid { grid-template-columns: 1fr; } }
 
   /* ========================
-     CTA Section
+     CTA
      ======================== */
   .cta-section {
     border-top: 1px solid var(--color-border);
@@ -889,24 +1116,15 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
   .cta-section::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 50%;
+    top: 0; left: 50%;
     transform: translateX(-50%);
-    width: 60%;
-    height: 1px;
+    width: 60%; height: 1px;
     background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
     opacity: 0.3;
   }
 
-  .cta-content {
-    max-width: 640px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .cta-content h2 {
-    margin-bottom: var(--space-md);
-  }
+  .cta-content { max-width: 640px; margin: 0 auto; text-align: center; }
+  .cta-content h2 { margin-bottom: var(--space-md); }
 
   .cta-lead {
     font-size: 1.1rem;
@@ -915,11 +1133,7 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
     line-height: 1.7;
   }
 
-  .cta-actions {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-md);
-  }
+  .cta-actions { display: flex; justify-content: center; gap: var(--space-md); }
 
   /* ========================
      Scroll animations
