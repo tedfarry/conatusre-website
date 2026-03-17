@@ -64,6 +64,9 @@ const formattedUpdated = updatedDate?.toLocaleDateString('en-US', {
 
       <footer class="blog-post__footer">
         <a href="/blog" class="btn btn--outline">&larr; Back to Blog</a>
+        {(category === 'SFR Investing' || category === '1031 Exchange') && (
+          <a href="/glossary" class="btn btn--outline">&larr; Back to Glossary</a>
+        )}
       </footer>
     </div>
   </article>
@@ -138,5 +141,8 @@ const formattedUpdated = updatedDate?.toLocaleDateString('en-US', {
     margin-top: var(--space-2xl);
     padding-top: var(--space-lg);
     border-top: 1px solid var(--color-border);
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
   }
 </style>

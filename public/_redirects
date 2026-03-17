@@ -1,4 +1,40 @@
 # Cloudflare Pages redirects
 # Format: /old-path /new-path [status-code]
-# Add redirects here when migrating from WordPress URLs
-# See: https://developers.cloudflare.com/pages/configuration/redirects/
+# Legacy WordPress site (conatusre.com) → new Astro site
+
+# Core page redirects
+/about-us /about 301
+/about-us/ /about 301
+/about-us/ted-farry /leadership 301
+/about-us/ted-farry/ /leadership 301
+/services /services 301
+/services/ /services 301
+/contact /contact 301
+/contact/ /contact 301
+/privacy-policy /privacy 301
+/privacy-policy/ /privacy 301
+/recent-closings /case-studies 301
+/recent-closings/ /case-studies 301
+/broker-partner /contact 301
+/broker-partner/ /contact 301
+/1031-sizing /contact 301
+/1031-sizing/ /contact 301
+/1031-sizing-confirmation /contact 301
+/1031-sizing-confirmation/ /contact 301
+/real-estate-investing-glossary-of-terms /glossary 301
+/real-estate-investing-glossary-of-terms/ /glossary 301
+/conatus-real-estate /about 301
+/conatus-real-estate/ /about 301
+/ndira /contact 301
+/ndira/ /contact 301
+/portal-login /contact 301
+/portal-login/ /contact 301
+
+# Blog section: individual posts
+/single-family-rental-property-accelerator/:slug /blog/:slug 301
+
+# Blog section: root and category/tag archives
+/single-family-rental-property-accelerator /blog 301
+/single-family-rental-property-accelerator/ /blog 301
+/single-family-rental-property-accelerator/category/* /blog 301
+/single-family-rental-property-accelerator/tag/* /blog 301

@@ -10,4 +10,9 @@ export default defineConfig({
     sitemap(),
     mdx(),
   ],
+  vite: {
+    server: {
+      allowedHosts: ['gustavo'],
+    },
+  },
 });

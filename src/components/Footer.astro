@@ -48,8 +48,11 @@ const year = new Date().getFullYear();
 
     <div class="footer__bottom">
       <p>&copy; {year} Conatus Real Estate Inc. All rights reserved.</p>
-      <p class="footer__license">CA DRE Lic. No. 02061370</p>
-      <p class="footer__housing">Equal Housing Opportunity</p>
+      <p class="footer__license">Conatus Real Estate Inc. is a licensed California State Real Estate Broker, CA DRE Lic. No. 02061370</p>
+      <div class="footer__housing">
+        <img src="/assets/brand/eho-logo.svg" alt="Equal Housing Opportunity" class="footer__eho-logo" width="28" height="28" />
+        <span>Equal Housing Opportunity</span>
+      </div>
     </div>
   </div>
 </footer>
@@ -187,9 +190,19 @@ const year = new Date().getFullYear();
   }
 
   .footer__housing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
     font-size: 0.8rem;
     color: var(--color-text-muted);
     margin-top: var(--space-xs);
+  }
+
+  .footer__eho-logo {
+    color: var(--color-text-muted);
+    opacity: 0.7;
+    flex-shrink: 0;
   }
 
   @media (max-width: 768px) {
