@@ -21,8 +21,9 @@ const { title, description, image, type, pubDate } = Astro.props;
     <SEO title={title} description={description} image={image} type={type} pubDate={pubDate} />
   </head>
   <body>
+    <a href="#main" class="skip-to-content">Skip to content</a>
     <Header />
-    <main class="main">
+    <main class="main" id="main">
       <slot />
     </main>
     <Footer />

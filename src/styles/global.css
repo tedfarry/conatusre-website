@@ -131,6 +131,22 @@ a:hover {
   margin-bottom: var(--space-xs);
 }
 
+.prose strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.prose a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(200, 169, 110, 0.4);
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+
+.prose a:hover {
+  text-decoration-color: var(--color-accent-hover);
+}
+
 .prose .video-embed {
   position: relative;
   padding-bottom: 56.25%;
@@ -224,6 +240,11 @@ a:hover {
 .btn--primary:hover {
   background: var(--color-accent-hover);
   color: var(--color-bg);
+  transform: translateY(-1px);
+}
+
+.btn--primary:active {
+  transform: translateY(0);
 }
 
 .btn--outline {
@@ -235,6 +256,11 @@ a:hover {
 .btn--outline:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.btn--outline:active {
+  transform: translateY(0);
 }
 
 /* Tag */
@@ -246,4 +272,71 @@ a:hover {
   border-radius: 4px;
   font-size: 0.8rem;
   color: var(--color-text-muted);
+}
+
+/* ========================
+   Focus & Accessibility
+   ======================== */
+
+/* Skip to content */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: var(--space-md);
+  z-index: 200;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+  top: 0;
+  color: var(--color-bg);
+}
+
+/* Focus-visible for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Remove default focus for mouse users, keep for keyboard */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Button focus */
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(200, 169, 110, 0.15);
+}
+
+/* Card focus-within for linked cards */
+.card:focus-within {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================
+   Selection
+   ======================== */
+::selection {
+  background: rgba(200, 169, 110, 0.3);
+  color: var(--color-text);
 }

@@ -159,10 +159,19 @@ const year = new Date().getFullYear();
     margin-top: var(--space-xs);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
+    .footer__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+    .footer__brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 480px) {
     .footer__grid {
       grid-template-columns: 1fr;
-      gap: var(--space-lg);
     }
   }
 </style>
