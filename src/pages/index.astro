@@ -306,6 +306,7 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
           <h3>Homestead Affordable Fund I</h3>
           <p>Conatus Real Estate Inc. is the sponsor of Homestead Affordable Fund I, a single-family residential fund focused on Housing Choice Voucher tenants.</p>
           <a href="https://homesteadaffordable.com" class="btn btn--outline btn--sm" target="_blank" rel="noopener">Homestead Affordable &rarr;</a>
+          <p class="platform-disclaimer">This is not an offer to sell or solicitation to buy any security. Offerings made only via PPM. Accredited investors only.</p>
         </div>
       </div>
     </div>
@@ -869,6 +870,15 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
   .btn--sm {
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
+  }
+
+  .platform-disclaimer {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: var(--space-xs);
+    line-height: 1.5;
+    flex: none;
   }
 
   @media (max-width: 768px) {
