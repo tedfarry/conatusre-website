@@ -1,0 +1,314 @@
+---
+import Base from '../layouts/Base.astro';
+import ExchangeCalculator from '../components/ExchangeCalculator';
+---
+
+<Base
+  title="1031 Exchange Calculator — Conatus Real Estate"
+  description="Estimate your tax deferral from a 1031 like-kind exchange. Calculate capital gains, depreciation recapture, and compare proceeds with and without an exchange."
+>
+  <section class="section">
+    <div class="container--narrow">
+      <p class="page-label">Tools</p>
+      <h1>1031 Exchange<br /><span class="accent">Calculator</span></h1>
+
+      <div class="prose">
+        <p class="lead">
+          Estimate the tax deferral benefit of a 1031 like-kind exchange on your
+          investment property. Enter your property details below to compare
+          proceeds with and without an exchange.
+        </p>
+      </div>
+
+      <ExchangeCalculator client:load />
+
+      <div class="prose calc-info">
+        <h2>What is a 1031 Exchange?</h2>
+        <p>
+          A 1031 exchange (also called a like-kind exchange or Starker exchange)
+          allows investors to defer capital gains taxes when selling an investment
+          property, provided the proceeds are reinvested into a "like-kind"
+          replacement property. Under IRC Section 1031, both the relinquished and
+          replacement properties must be held for investment or business use.
+        </p>
+
+        <h3>Key Timelines</h3>
+        <ul>
+          <li><strong>45 days</strong> — Identification period to identify potential replacement properties after closing on the relinquished property.</li>
+          <li><strong>180 days</strong> — Exchange period to close on the replacement property after selling the relinquished property.</li>
+        </ul>
+
+        <h3>Requirements</h3>
+        <ul>
+          <li>Both properties must be held for investment or business use (not personal residence).</li>
+          <li>A Qualified Intermediary (QI) must hold the funds — you cannot take constructive receipt.</li>
+          <li>The replacement property must be of equal or greater value to defer all gains.</li>
+          <li>All equity and debt must be replaced to avoid "boot" (taxable portion).</li>
+        </ul>
+
+        <p>
+          <a href="/blog/what-is-a-1031-exchange">Read our full guide to 1031 exchanges &rarr;</a>
+        </p>
+
+        <div class="disclaimer">
+          <p>
+            <strong>Disclaimer:</strong> This calculator is for educational and
+            estimation purposes only. It does not constitute tax, legal, or
+            financial advice. Tax laws are complex and change frequently. Always
+            consult with a qualified tax advisor, CPA, or attorney before making
+            investment decisions or executing a 1031 exchange.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  h1 {
+    margin-bottom: var(--space-xl);
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xl);
+  }
+
+  .calc-info {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-2xl);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .disclaimer {
+    margin-top: var(--space-xl);
+    padding: var(--space-md);
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .disclaimer p {
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  /* Calculator component styles (global to reach React component) */
+  :global(.calc-container) {
+    margin-top: var(--space-lg);
+  }
+
+  :global(.calc-form) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  :global(.calc-section h3) {
+    font-size: 1rem;
+    margin-bottom: var(--space-md);
+    color: var(--color-text);
+  }
+
+  :global(.calc-row) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+  }
+
+  :global(.calc-field) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  :global(.calc-field label) {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  :global(.input-prefix),
+  :global(.input-suffix) {
+    display: flex;
+    align-items: center;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+
+  :global(.input-prefix:focus-within),
+  :global(.input-suffix:focus-within) {
+    border-color: var(--color-accent);
+  }
+
+  :global(.input-prefix span),
+  :global(.input-suffix span) {
+    padding: 0 0.75rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    flex-shrink: 0;
+  }
+
+  :global(.input-prefix input),
+  :global(.input-suffix input) {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 0.75rem 0.75rem 0.75rem 0;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-text);
+    outline: none;
+    min-width: 0;
+  }
+
+  :global(.input-suffix input) {
+    padding: 0.75rem 0 0.75rem 0.75rem;
+  }
+
+  :global(.calc-btn) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    width: 100%;
+  }
+
+  :global(.calc-btn:hover) {
+    background: var(--color-accent-hover);
+  }
+
+  :global(.calc-results) {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+  }
+
+  :global(.calc-results h3) {
+    font-size: 1rem;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+  }
+
+  :global(.result-hero) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  :global(.result-hero-item) {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  :global(.result-hero-item--highlight) {
+    border-color: var(--color-accent);
+    background: linear-gradient(135deg, rgba(200, 169, 110, 0.08) 0%, rgba(200, 169, 110, 0.02) 100%);
+  }
+
+  :global(.result-label) {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  :global(.result-value) {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  :global(.result-value--accent) {
+    color: var(--color-accent);
+  }
+
+  :global(.result-breakdown) {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: var(--space-lg);
+  }
+
+  :global(.result-line) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+  }
+
+  :global(.result-line--total) {
+    font-weight: 600;
+    color: var(--color-text);
+    border-bottom: none;
+    padding-top: var(--space-sm);
+  }
+
+  :global(.result-negative) {
+    color: #c87e7e;
+  }
+
+  :global(.result-note) {
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-md);
+  }
+
+  :global(.result-note p) {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    :global(.calc-row) {
+      grid-template-columns: 1fr;
+    }
+
+    :global(.result-hero) {
+      grid-template-columns: 1fr;
+    }
+
+    :global(.result-value) {
+      font-size: 1.5rem;
+    }
+  }
+</style>

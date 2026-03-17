@@ -7,7 +7,7 @@ export async function GET(context: APIContext) {
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
   return rss({
-    title: 'Conatus Real Estate',
+    title: 'Conatus Real Estate Inc.',
     description: 'Insights on real estate operations, technology, and single-family residential investing.',
     site: context.site!,
     items: posts.map((post) => ({
