@@ -1,0 +1,185 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const glossaryCategories = ['SFR Investing', '1031 Exchange'];
+
+// Extract the actual term from titles like "What Is A Cap Rate In SFR Investing?" → "Cap Rate"
+function extractTerm(title: string): string {
+  let term = title
+    .replace(/^What (Is|Are) (A |An |The )?/i, '')
+    .replace(/ In SFR Investing\??$/i, '')
+    .replace(/\?$/, '')
+    .trim();
+  return term || title;
+}
+
+const definitionTitlePattern = /^(What (Is|Are|Does)|How (Is|Are|Does|Do))\b/i;
+
+const allPosts = (await getCollection('blog', ({ data }) =>
+  !data.draft &&
+  glossaryCategories.includes(data.category ?? '') &&
+  definitionTitlePattern.test(data.title)
+))
+  .sort((a, b) => extractTerm(a.data.title).localeCompare(extractTerm(b.data.title)));
+
+// Group by first letter of the actual term
+const byLetter: Record<string, typeof allPosts> = {};
+for (const post of allPosts) {
+  const term = extractTerm(post.data.title);
+  const letter = term[0].toUpperCase();
+  if (!byLetter[letter]) byLetter[letter] = [];
+  byLetter[letter].push(post);
+}
+const letters = Object.keys(byLetter).sort();
+---
+
+<Base
+  title="Real Estate Investing Glossary"
+  description="A comprehensive glossary of real estate investing terms covering SFR investing, 1031 exchanges, tax strategies, and property management — from Conatus Real Estate."
+>
+  <section class="section">
+    <div class="container">
+      <div class="page-header">
+        <p class="page-label">Reference</p>
+        <h1>Real Estate Investing Glossary</h1>
+        <p class="page-description">
+          Definitions and explanations of key terms in single-family residential investing,
+          1031 exchanges, and real estate tax strategy.
+        </p>
+      </div>
+
+      <nav class="alpha-nav" aria-label="Jump to letter">
+        {letters.map((letter) => (
+          <a href={`#letter-${letter}`} class="alpha-link">{letter}</a>
+        ))}
+      </nav>
+
+      <div class="glossary">
+        {letters.map((letter) => (
+          <div class="glossary-group" id={`letter-${letter}`}>
+            <h2 class="glossary-letter">{letter}</h2>
+            <ul class="glossary-list">
+              {byLetter[letter].map((post) => (
+                <li class="glossary-item">
+                  <a href={`/blog/${post.id}`} class="glossary-link">
+                    <span class="glossary-term">{post.data.title}</span>
+                    <span class="glossary-desc">{post.data.description}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-header {
+    margin-bottom: var(--space-xl);
+    max-width: 640px;
+  }
+
+  .page-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .page-description {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+  }
+
+  .alpha-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-2xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .alpha-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+
+  .alpha-link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background: rgba(200, 169, 110, 0.08);
+  }
+
+  .glossary {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .glossary-letter {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .glossary-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .glossary-item {
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+
+  .glossary-item:hover {
+    background: var(--color-bg-elevated);
+  }
+
+  .glossary-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: var(--space-sm) var(--space-md);
+    text-decoration: none;
+    border-radius: 8px;
+  }
+
+  .glossary-term {
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: 1rem;
+  }
+
+  .glossary-link:hover .glossary-term {
+    color: var(--color-accent);
+  }
+
+  .glossary-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+</style>
