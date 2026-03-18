@@ -1,0 +1,22 @@
+name = "conatusre-contact-function"
+type = "service"
+main = "functions/api/contact.js"
+
+# Environment variables (RESEND_API_KEY should be set via `wrangler secret put` or CI/CD)
+[env.production]
+name = "conatusre-contact-function-prod"
+
+[env.development]
+name = "conatusre-contact-function-dev"
+
+# Binding configuration for Cloudflare Pages
+[build]
+command = ""
+
+[[triggers.routes]]
+pattern = "conatusre.com/api/contact"
+zone_name = "conatusre.com"
+
+[[triggers.routes]]
+pattern = "www.conatusre.com/api/contact"
+zone_name = "conatusre.com"
