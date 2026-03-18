@@ -2,9 +2,6 @@
 # Format: /old-path /new-path [status-code]
 # See: https://developers.cloudflare.com/pages/configuration/redirects/
 
-# Service section anchor now has dedicated page
-/#services /services 301
-
 # Legacy WordPress site (conatusre.com) → new Astro site
 
 # Core page redirects
@@ -30,10 +27,6 @@
 /ndira/ /contact 301
 /portal-login /contact 301
 /portal-login/ /contact 301
-
-# Leadership page consolidated into about
-/leadership /about 301
-/leadership/ /about 301
 
 # Blog section: individual posts
 /single-family-rental-property-accelerator/:slug /blog/:slug 301
