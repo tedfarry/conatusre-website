@@ -7,7 +7,6 @@
  * - RESEND_API_KEY: Resend API key for sending emails
  */
 
-const RESEND_API_KEY = globalThis.RESEND_API_KEY || process.env.RESEND_API_KEY;
 const TO_EMAIL = 'houses@conatusre.com';
 const ALLOWED_ORIGINS = [
   'https://conatusre.com',
@@ -73,7 +72,7 @@ function validateRequest(body) {
 /**
  * Send email via Resend API
  */
-async function sendEmail(data) {
+async function sendEmail(data, apiKey) {
   const firstName = data.first_name?.trim() || '';
   const lastName = data.last_name?.trim() || '';
   const email = data.email?.trim() || '';
@@ -97,7 +96,7 @@ ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
   const response = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${RESEND_API_KEY}`,
+      'Authorization': `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
@@ -121,7 +120,8 @@ ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
  * Main handler function
  */
 export async function onRequest(context) {
-  const { request } = context;
+  const { request, env } = context;
+  const RESEND_API_KEY = env.RESEND_API_KEY;
   const origin = request.headers.get('origin');
   const corsHeaders = getCorsHeaders(origin);
 
@@ -183,7 +183,7 @@ export async function onRequest(context) {
     }
 
     // Send email
-    await sendEmail(body);
+    await sendEmail(body, RESEND_API_KEY);
 
     // Return success response
     return new Response(
