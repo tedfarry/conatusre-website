@@ -21,16 +21,16 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
   <section class="hero">
     <div class="container">
       <div class="hero__content" data-animate>
-        <p class="hero__label">AI-Powered Operations</p>
+        <p class="hero__label">Operator-Built. AI-Powered.</p>
         <h1 class="hero__title">
-          We build the systems.<br />
-          <span class="accent">We know the domain.</span>
+          We've operated at scale.<br />
+          <span class="accent">We build what we know works.</span>
         </h1>
         <p class="hero__subtitle">
-          Fully custom operations platforms — not SaaS products that solve half your problems
-          and a thousand that aren't yours. Built by operators with deep domain expertise,
-          powered by AI. Starting with single-family residential real estate and expanding
-          across financial services, asset management, and private lending.
+          Custom AI-powered operations platforms designed by operators — not by product teams
+          solving for the broadest possible market. We've executed 4,000+ SFR transactions
+          across multiple institutional platforms. We know what breaks in the SaaS stack,
+          what the workarounds cost you, and how to build the right fix.
         </p>
         <div class="hero__actions">
           <a href="/contact" class="btn btn--primary">Get in Touch</a>
@@ -242,8 +242,8 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
         </div>
         <div class="proof-card">
           <span class="proof-card__number">$1B+</span>
-          <span class="proof-card__label">In SFR Transactions</span>
-          <span class="proof-card__detail">Systematic, data-driven processes at scale</span>
+          <span class="proof-card__label">In SFR Acquisitions</span>
+          <span class="proof-card__detail">As operator, not advisor — the requirements don't come from interviews</span>
         </div>
         <div class="proof-card">
           <span class="proof-card__number">AI-Native</span>
@@ -260,6 +260,7 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
       <div class="section-header" data-animate>
         <p class="section-header__label">What We Build</p>
         <h2>Your Platform, Not Theirs</h2>
+        <p class="section-intro">Designed by someone who's run the operations you need to automate. These aren't services a generalist shop can offer — they require understanding the domain from the inside out.</p>
       </div>
       <div class="services-grid">
         <div class="card service-card" data-animate>
@@ -857,6 +858,13 @@ const allCaseStudies = (await getCollection('case-studies', ({ data }) => !data.
      Section utilities
      ======================== */
   .section-header { margin-bottom: var(--space-xl); }
+
+  .section-intro {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-sm);
+    max-width: 560px;
+  }
 
   .section-header__label {
     font-size: 0.85rem;
