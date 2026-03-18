@@ -101,7 +101,7 @@ ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'noreply@conatusre.com',
+      from: 'noreply@gus.conatusre.com',
       to: TO_EMAIL,
       reply_to: email,
       subject: subject,
