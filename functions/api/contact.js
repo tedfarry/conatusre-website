@@ -44,7 +44,7 @@ function formatInquiryType(inquiryType) {
     platform: 'Custom Operations Platform',
     claude: 'Claude / AI Integration',
     consulting: 'Technical Consulting',
-    investment: 'Investment & Advisory',
+    investment: 'Real Estate Investment',
     other: 'Other',
   };
   return typeMap[inquiryType] || inquiryType || 'Not specified';
