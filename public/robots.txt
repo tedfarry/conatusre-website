@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://conatusre.com/sitemap-index.xml
